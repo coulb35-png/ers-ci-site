@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#171A16">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Réalisations | ERS-CI</title>
+<meta name="description" content="Bitumage, enduits, dalots, bordures et reprofilage : les chantiers exécutés par ERS-CI depuis 2019, avec leurs quantités et attestations de bonne exécution.">
+<meta property="og:title" content="Réalisations | ERS-CI">
+<meta property="og:description" content="Bitumage, enduits, dalots, bordures et reprofilage : les chantiers exécutés par ERS-CI depuis 2019, avec leurs quantités et attestations de bonne exécution.">
+<meta property="og:image" content="images/chantier-voie-terminee.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="evitement" href="#contenu">Aller au contenu</a>
+
+<header class="entete">
+  <div class="entete__barre">
+    <a href="index.html" class="entete__logo" aria-label="ERS-CI, accueil">
+      <img src="images/logo-ers-ci.jpg" alt="ERS-CI" width="129" height="40">
+    </a>
+    <button class="entete__menu-bouton" aria-expanded="false" aria-controls="menu">
+      <span class="burger" aria-hidden="true"></span><span class="visuellement-cache">Menu</span>
+    </button>
+    <nav id="menu" class="menu" aria-label="Navigation principale">
+      <a href="metiers.html">Nos métiers</a>
+      <a href="realisations.html" aria-current="page">Réalisations</a>
+      <a href="methode.html">Méthode et sécurité</a>
+      <a href="sous-traitance.html">Sous-traitance</a>
+      <a href="a-propos.html">À propos</a>
+      <a href="contact.html">Contact</a>
+      <a href="devis.html" class="bouton bouton--action menu__devis">Demander un devis</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+<section class="tete-page">
+  <div class="tete-page__grille">
+    <div>
+      <p class="fil"><a href="index.html">Accueil</a> / Réalisations</p>
+      <h1 class="tete-page__titre" data-arrivee>Des chantiers, des quantités, des attestations.</h1>
+      <p class="tete-page__chapo" data-arrivee>Chaque fiche dit la nature des travaux, le lieu, l'année et la quantité. Les attestations de bonne exécution, contrats et procès-verbaux de réception sont présentés sur demande.</p>
+    </div>
+    <figure class="tete-page__photo" data-arrivee>
+      <img src="images/chantier-voie-terminee.jpg" alt="Voie urbaine fraîchement bitumée, finisseur au fond" width="1080" height="810">
+    </figure>
+  </div>
+  <svg class="route route--calme" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+    <path class="route__chaussee" d="M0 86 C 360 30, 720 120, 1080 60 S 1440 50, 1440 50" />
+    <path class="route__marquage" d="M0 86 C 360 30, 720 120, 1080 60 S 1440 50, 1440 50" />
+  </svg>
+</section>
+<section class="confiance" aria-labelledby="titre-confiance">
+  <div class="conteneur">
+    <h2 id="titre-confiance" class="etiquette">Ils nous ont fait confiance</h2>
+    <ul class="confiance__liste">
+      <li>EKDS Nouvelle</li><li>GEBATEC</li><li>PEWE</li><li>ESPINA</li><li>AGEROUTE</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="conteneur">
+    <div class="tri" role="group" aria-label="Trier les réalisations par métier">
+      <button type="button" data-filtre="tout" aria-pressed="true">Tout</button>
+      <button type="button" data-filtre="bitumage" aria-pressed="false">Bitumage</button>
+      <button type="button" data-filtre="assainissement" aria-pressed="false">Assainissement</button>
+      <button type="button" data-filtre="bordures" aria-pressed="false">Bordures et pavés</button>
+      <button type="button" data-filtre="terre" aria-pressed="false">Routes en terre</button>
+    </div>
+    <div class="fiches--toutes">
+      <article class="fiche fiche--photo" data-metier="bitumage" data-arrivee>
+        <img src="images/chantier-finisseur-equipe.jpg" alt="Équipe en casque et gilet derrière le finisseur, voirie de Djorogobité" width="1080" height="810" loading="lazy">
+        <div class="fiche__corps">
+          <p class="fiche__meta">Abidjan · Djorogobité · 2026</p>
+          <h3>Bitumage de voirie en béton bitumineux</h3>
+          <p>Pour ESPINA.</p>
+        </div>
+      </article>
+      <article class="fiche" data-metier="bitumage" data-arrivee>
+        <p class="fiche__badge">Attestation de bonne exécution</p><p class="fiche__metier">Bitumage</p>
+        <p class="fiche__quantite">10&nbsp;000&nbsp;m²</p><h3>Béton bitumineux 0/14, épaisseur 5 cm, sur couche d'accrochage</h3>
+        <p>Pour EKDS Nouvelle.</p>
+        <p class="fiche__meta">Bouaké · novembre 2019</p>
+      </article>
+      <article class="fiche" data-metier="bitumage" data-arrivee>
+        <p class="fiche__badge">Attestation de bonne exécution</p><p class="fiche__metier">Bitumage</p>
+        <p class="fiche__quantite">5&nbsp;712&nbsp;m²</p><h3>Enduit superficiel bicouche</h3>
+        <p>Pour EKDS Nouvelle.</p>
+        <p class="fiche__meta">Grand-Bassam · décembre 2019</p>
+      </article>
+      <article class="fiche" data-metier="assainissement" data-arrivee>
+        <p class="fiche__metier">Assainissement</p>
+        <p class="fiche__quantite">2 × 1,50 × 1,50</p><h3>Dalots double section, têtes comprises</h3>
+        <p>Pour une entreprise générale de travaux publics.</p>
+        <p class="fiche__meta">Afalikro · août 2020</p>
+      </article>
+      <article class="fiche" data-metier="bitumage" data-arrivee>
+        <p class="fiche__metier">Bitumage</p>
+        <h3>Bitumage de voirie sur dalot, tronçon Abengourou–Niablé</h3>
+        <p>Pour une entreprise générale de travaux publics.</p>
+        <p class="fiche__meta">Afalikro · 2020</p>
+      </article>
+      <article class="fiche" data-metier="bitumage" data-arrivee>
+        <p class="fiche__metier">Bitumage</p>
+        <h3>Traitement de chaussée au point-à-temps</h3>
+        <p>Pour EKDS Nouvelle.</p>
+        <p class="fiche__meta">Bingerville</p>
+      </article>
+      <article class="fiche" data-metier="bordures" data-arrivee>
+        <p class="fiche__metier">Bordures et pavés</p>
+        <h3>Pose de bordures T2 et T2CS2</h3>
+        <p>Pour EKDS Nouvelle.</p>
+        <p class="fiche__meta">Abatta</p>
+      </article>
+      <article class="fiche" data-metier="bordures" data-arrivee>
+        <p class="fiche__metier">Bordures et pavés</p>
+        <h3>Pose de bordures CCS2</h3>
+        <p>Pour EKDS Nouvelle.</p>
+        <p class="fiche__meta">Mamini</p>
+      </article>
+      <article class="fiche" data-metier="terre" data-arrivee>
+        <p class="fiche__metier">Routes en terre</p>
+        <h3>Reprofilage léger de route en terre</h3>
+        <p>Route en terre remise en forme à la niveleuse.</p>
+        <p class="fiche__meta">Ouellé</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--sombre" aria-labelledby="titre-galerie">
+  <div class="conteneur">
+    <header class="section__entete">
+      <p class="etiquette etiquette--sombre">Un chantier, étape par étape</p>
+      <h2 id="titre-galerie" class="section__titre">Bitumage de voirie, Djorogobité (Abidjan), 2026.</h2>
+      <p class="section__chapo">Du support préparé à la voie livrée, pour ESPINA.</p>
+    </header>
+    <div class="galerie">
+      <figure data-arrivee><img src="images/chantier-phase1.jpg" alt="Voie préparée avant revêtement, bordures posées" width="1080" height="810" loading="lazy"><figcaption>1 · Support préparé, bordures posées</figcaption></figure>
+      <figure data-arrivee><img src="images/chantier-accrochage-2.jpg" alt="Ouvrier en casque et gilet préparant l'émulsion de la couche d'accrochage" width="810" height="1080" loading="lazy"><figcaption>2 · Préparation de la couche d'accrochage</figcaption></figure>
+      <figure data-arrivee><img src="images/chantier-repandage.jpg" alt="Couche d'accrochage répandue, finisseur en approche" width="1080" height="810" loading="lazy"><figcaption>3 · Accrochage répandu, finisseur en approche</figcaption></figure>
+      <figure data-arrivee><img src="images/chantier-tremie.jpg" alt="Trémie du finisseur chargée d'enrobé, équipe au réglage" width="1080" height="810" loading="lazy"><figcaption>4 · Mise en œuvre de l'enrobé au finisseur</figcaption></figure>
+      <figure data-arrivee><img src="images/chantier-reglage-enrobe.jpg" alt="Réglage manuel de l'enrobé derrière le finisseur" width="1080" height="810" loading="lazy"><figcaption>5 · Réglage et compactage</figcaption></figure>
+      <figure data-arrivee><img src="images/chantier-voie-finie-2.jpg" alt="Carrefour revêtu, chantier balisé" width="1000" height="750" loading="lazy"><figcaption>6 · Voie revêtue, chantier balisé</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="appel">
+  <div class="conteneur">
+    <h2>Un projet de voirie, d'assainissement ou de revêtement&nbsp;?</h2>
+    <p>Décrivez vos travaux : nous revenons vers vous avec une estimation.</p>
+    <div class="appel__boutons">
+      <a class="bouton bouton--clair" href="devis.html">Demander un devis</a>
+      <a class="bouton bouton--contour-blanc" href="tel:+2250707330223">Appeler le 07 07 33 02 23</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pied">
+  <div class="conteneur pied__grille">
+    <div>
+      <img src="images/logo-ers-ci.jpg" alt="ERS-CI" width="129" height="40" class="pied__logo">
+      <p class="pied__signature">Des routes bien faites, des chantiers bien tenus.</p>
+    </div>
+    <div>
+      <h2 class="pied__titre">Nous joindre</h2>
+      <p><a href="https://wa.me/2250717859090?text=Bonjour%20ERS-CI%2C%20je%20souhaite%20un%20devis%20pour%20des%20travaux." class="pied__lien">WhatsApp&nbsp;: 07 17 85 90 90</a></p>
+      <p><a href="tel:+2250707330223" class="pied__lien">Standard&nbsp;: 07 07 33 02 23</a></p>
+      <p><a href="mailto:coulb35@gmail.com" class="pied__lien">coulb35@gmail.com</a></p>
+    </div>
+    <div>
+      <h2 class="pied__titre">Nous trouver</h2>
+      <p>Abobo PK18, route d'Anyama<br>Abidjan, Côte d'Ivoire<br>09 BP 2759 Abidjan 09</p>
+      <p>Du lundi au vendredi, 8 h – 18 h</p>
+    </div>
+  </div>
+  <div class="conteneur pied__legal">
+    <p>ERS-CI SARL · Capital 1 000 000 FCFA · RCCM CI-ABJ-2019-B-13371 · © <span data-annee>2026</span></p>
+    <a href="mentions-legales.html" class="pied__lien">Mentions légales</a>
+  </div>
+</footer>
+
+<a class="whatsapp-flottant" href="https://wa.me/2250717859090?text=Bonjour%20ERS-CI%2C%20je%20souhaite%20un%20devis%20pour%20des%20travaux." aria-label="Nous écrire sur WhatsApp">
+  <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.7.7 2.3.8 3.1.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3Z"/></svg>
+  <span>WhatsApp</span>
+</a>
+
+<script src="main.js" defer></script>
+</body>
+</html>

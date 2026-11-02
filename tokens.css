@@ -1,0 +1,46 @@
+/* ERS-CI — jetons d'allure (ébauche du 2026-11-01)
+   Parti pris : un document de chantier soigné. Précis, robuste, lisible en plein soleil.
+   L'asphalte et le vert ERS-CI, les vraies équipes, la preuve à chaque étape. */
+:root {
+  /* Couleurs — vert tiré du logo ERS-CI, neutres teintés vers le vert */
+  --asphalte: #171A16;        /* grands bandeaux sombres */
+  --asphalte-2: #23271F;      /* surface sur fond sombre */
+  --papier: #F4F4EE;          /* fond clair */
+  --blanc: #FFFFFF;
+  --encre: #1C1F1A;           /* texte courant : 15.1:1 sur papier */
+  --encre-douce: #4E5449;     /* texte secondaire : 7.1:1 sur papier */
+  --sur-sombre: #F4F4EE;      /* texte sur asphalte : 15.9:1 */
+  --sur-sombre-doux: #A9AFA0; /* texte secondaire sur asphalte : 7.8:1 */
+  --vert-marque: #589828;     /* le vert du logo : grands titres et décor seulement (3.2:1) */
+  --vert-action: #3D7419;     /* bouton principal, liens : blanc dessus 5.7:1 */
+  --vert-action-survol: #2F5C12;
+  --vert-signal: #8CC152;     /* le vert sur fond asphalte : 8.3:1 */
+  --trait: #CDD1C4;           /* filets décoratifs */
+  --trait-sombre: #3A4035;    /* filets sur asphalte */
+
+  /* Typographie — Barlow : dessinée d'après la signalisation routière */
+  --police-titre: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --police-texte: "Barlow", system-ui, sans-serif;
+  --police-technique: "IBM Plex Mono", ui-monospace, monospace;
+  --t-xs: 0.8125rem;   /* 13 — étiquettes techniques */
+  --t-s: 0.9375rem;    /* 15 */
+  --t-m: 1.0625rem;    /* 17 — texte courant */
+  --t-l: 1.375rem;     /* 22 */
+  --t-xl: clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem);   /* titres de section */
+  --t-xxl: clamp(2.75rem, 1.6rem + 5.2vw, 5.75rem);  /* titre d'accueil */
+  --interligne: 1.6;
+
+  /* Espacements */
+  --e-1: 0.25rem; --e-2: 0.5rem; --e-3: 0.75rem; --e-4: 1rem;
+  --e-5: 1.5rem; --e-6: 2rem; --e-7: 3rem; --e-8: 4.5rem; --e-9: 7rem;
+
+  /* Formes — deux rayons contrastés ; séparation au trait, jamais à l'ombre */
+  --rayon-net: 2px;    /* boutons, étiquettes, champs */
+  --rayon-doux: 14px;  /* photos et grandes cartes */
+  --largeur: 76rem;
+
+  /* Mouvement — registre expressif, demandé par la personne */
+  --courbe: cubic-bezier(0.23, 1, 0.32, 1);
+  --duree-court: 180ms;
+  --duree-arrivee: 650ms;
+}
