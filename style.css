@@ -340,6 +340,44 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--vert-signal); o
 button.bouton { cursor: pointer; }
 @media (min-width: 700px) { .formulaire { padding: var(--e-6); grid-template-columns: 1fr 1fr; } .champ--large, .formulaire__actions, .formulaire .note { grid-column: 1 / -1; } .formulaire__actions { flex-direction: row; flex-wrap: wrap; } }
 
+/* Remerciement après la demande de devis */
+.merci { background: var(--blanc); border: 1px solid var(--trait); border-radius: var(--rayon-doux); padding: var(--e-5); }
+.merci[hidden], .formulaire[hidden] { display: none; }
+.merci, .formulaire { scroll-margin-top: 6rem; }
+.merci [data-merci-tel], .merci a[href^="tel"], .merci a[href^="https://wa.me"] { white-space: nowrap; }
+.merci__bandeau { background: var(--papier); border-left: 4px solid var(--vert-action); border-radius: var(--rayon-net); padding: var(--e-3) var(--e-4); margin-bottom: var(--e-6); font-size: var(--t-s); color: var(--encre-douce); }
+.merci__bandeau p { margin: 0; }
+.merci__bandeau strong { color: var(--encre); }
+.merci__titre { font-size: var(--t-xl); font-weight: 800; line-height: 1.05; margin-bottom: var(--e-3); outline: none; }
+.merci__chapo { font-size: var(--t-l); line-height: 1.4; color: var(--encre-douce); margin-bottom: var(--e-7); }
+.merci__sous-titre { font-family: var(--police-technique); font-size: var(--t-xs); font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--vert-action); margin-bottom: var(--e-3); }
+.merci__etapes { list-style: none; margin: 0 0 var(--e-7); padding: 0; }
+.merci__etapes li { display: grid; grid-template-columns: 2.5rem 1fr; gap: var(--e-3); padding: var(--e-4) 0; border-top: 1px solid var(--trait); }
+.merci__etapes li:last-child { border-bottom: 1px solid var(--trait); }
+.merci__num { font-family: var(--police-technique); font-size: var(--t-s); font-weight: 500; color: var(--vert-action); padding-top: 0.2em; }
+.merci__etapes h3 { font-family: var(--police-titre); font-size: var(--t-l); font-weight: 700; line-height: 1.15; margin: 0 0 var(--e-2); }
+.merci__etapes p { color: var(--encre-douce); margin: 0 0 var(--e-2); }
+.merci__etapes p:last-child { margin-bottom: 0; }
+.merci__mot { color: var(--encre-douce); max-width: 36rem; margin-bottom: var(--e-5); }
+.merci__signature { font-size: var(--t-s); color: var(--encre-douce); margin-bottom: var(--e-7); }
+.merci__signature::before { content: ""; display: block; width: 4.5rem; height: 4px; margin-bottom: var(--e-3); background: repeating-linear-gradient(90deg, var(--vert-marque) 0 1.25rem, transparent 1.25rem 1.75rem); }
+.merci__signature span { display: block; font-family: var(--police-titre); font-size: var(--t-l); font-weight: 700; color: var(--encre); }
+.merci__retour { background: var(--papier); border-radius: var(--rayon-net); padding: var(--e-5); font-size: var(--t-s); color: var(--encre-douce); }
+.merci__retour p { margin: 0 0 var(--e-3); }
+.merci__retour-titre { font-family: var(--police-titre); font-size: var(--t-l); font-weight: 700; line-height: 1.2; color: var(--encre); }
+.merci__liens { display: flex; flex-wrap: wrap; align-items: center; gap: var(--e-2) var(--e-5); margin: var(--e-4) 0 0 !important; }
+.merci__lien { font: inherit; font-weight: 600; color: var(--vert-action); background: none; border: 0; padding: var(--e-2) 0; min-height: 44px; text-decoration: underline; cursor: pointer; }
+@media (min-width: 700px) { .merci { padding: var(--e-7); } }
+
+/* Disponibilités pour la visite : cases à cocher */
+.choix { border: 0; margin: 0; padding: 0; min-width: 0; }
+.choix legend { padding: 0; margin-bottom: var(--e-2); }
+.choix__options { display: flex; flex-wrap: wrap; gap: var(--e-2); }
+.choix__options label { display: inline-flex; align-items: center; gap: var(--e-2); min-height: 48px; padding: 0 var(--e-4); border: 1px solid var(--encre-douce); border-radius: var(--rayon-net); background: var(--papier); font-weight: 500; cursor: pointer; }
+.choix__options label:has(input:checked) { border-color: var(--vert-action); background: var(--blanc); box-shadow: inset 0 0 0 1px var(--vert-action); }
+.champ .choix__options input { width: 1.25rem; height: 1.25rem; min-height: 0; padding: 0; margin: 0; accent-color: var(--vert-action); }
+.tete-page__engagement { margin-top: var(--e-3); font-weight: 600; }
+
 /* Questions fréquentes */
 .faq details { border-bottom: 1px solid var(--trait); }
 .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: var(--e-4); align-items: center; min-height: 56px; padding: var(--e-3) 0; font-family: var(--police-titre); font-weight: 700; font-size: var(--t-l); line-height: 1.15; }

@@ -90,8 +90,8 @@
     var composer = function () {
       var d = new FormData(form);
       var lignes = ['Bonjour ERS-CI, je souhaite un devis.'];
-      [['travaux', 'Travaux'], ['lieu', 'Lieu'], ['quantite', 'Dimensions ou quantités'], ['delai', 'Délai souhaité'], ['details', 'Précisions'], ['nom', 'Nom'], ['telephone', 'Téléphone']].forEach(function (c) {
-        var v = (d.get(c[0]) || '').toString().trim();
+      [['travaux', 'Travaux'], ['lieu', 'Lieu'], ['quantite', 'Dimensions ou quantités'], ['delai', 'Délai souhaité'], ['dispo', 'Disponibilités pour la visite'], ['details', 'Précisions'], ['nom', 'Nom'], ['telephone', 'Téléphone']].forEach(function (c) {
+        var v = c[0] === 'dispo' ? d.getAll('dispo').join(', ') : (d.get(c[0]) || '').toString().trim();
         if (v) lignes.push(c[1] + ' : ' + v);
       });
       return lignes.join('\n');
@@ -125,16 +125,51 @@
     form.addEventListener('input', function (e) {
       if (e.target.getAttribute('aria-invalid') === 'true') valider();
     });
+    var ouvrirWhatsApp = function () {
+      window.open('https://wa.me/2250717859090?text=' + encodeURIComponent(composer()), '_blank', 'noopener');
+    };
+    var ouvrirEmail = function () {
+      window.location.href = 'mailto:coulb35@gmail.com?subject=' + encodeURIComponent('Demande de devis') + '&body=' + encodeURIComponent(composer());
+    };
+    // Après le clic, le formulaire cède la place au remerciement.
+    // Le site ne sait pas si le message a été envoyé : il rappelle la dernière étape.
+    var merci = document.getElementById('devis-merci');
+    var dernierEnvoi = ouvrirWhatsApp;
+    var remercier = function (canal, ouvrir) {
+      dernierEnvoi = ouvrir;
+      if (!merci) return;
+      var nom = form.nom.value.trim();
+      merci.querySelector('[data-merci-nom]').textContent = nom ? ', ' + nom : '';
+      merci.querySelector('[data-merci-tel]').textContent = form.telephone.value.trim();
+      merci.querySelector('[data-merci-canal]').textContent = canal === 'email' ? 'votre messagerie' : 'WhatsApp';
+      merci.querySelector('[data-merci-souci]').textContent = canal === 'email' ? 'Votre messagerie ne s\'est pas ouverte ?' : 'WhatsApp ne s\'est pas ouvert ?';
+      form.hidden = true;
+      merci.hidden = false;
+      merci.scrollIntoView({ behavior: calme ? 'auto' : 'smooth', block: 'start' });
+      merci.querySelector('.merci__titre').focus({ preventScroll: true });
+    };
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!valider()) return;
-      window.open('https://wa.me/2250717859090?text=' + encodeURIComponent(composer()), '_blank', 'noopener');
+      ouvrirWhatsApp();
+      remercier('whatsapp', ouvrirWhatsApp);
     });
     var parEmail = document.getElementById('devis-email');
     if (parEmail) parEmail.addEventListener('click', function () {
       if (!valider()) return;
-      window.location.href = 'mailto:coulb35@gmail.com?subject=' + encodeURIComponent('Demande de devis') + '&body=' + encodeURIComponent(composer());
+      remercier('email', ouvrirEmail);
+      ouvrirEmail();
     });
+    if (merci) {
+      document.getElementById('merci-reessayer').addEventListener('click', function () { dernierEnvoi(); });
+      document.getElementById('merci-nouvelle').addEventListener('click', function () {
+        form.reset();
+        merci.hidden = true;
+        form.hidden = false;
+        form.scrollIntoView({ behavior: calme ? 'auto' : 'smooth', block: 'start' });
+        form.querySelector('select, input').focus({ preventScroll: true });
+      });
+    }
   }
 
   // Diaporama du haut de page : fondu enchaîné lent

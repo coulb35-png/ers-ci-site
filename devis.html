@@ -49,6 +49,7 @@
       <p class="fil"><a href="index.html">Accueil</a> / Demander un devis</p>
       <h1 class="tete-page__titre" data-arrivee>Décrivez vos travaux, nous revenons vers vous.</h1>
       <p class="tete-page__chapo" data-arrivee>Remplissez les champs ci-dessous : votre demande s'ouvre, déjà rédigée, dans WhatsApp ou dans votre messagerie. Vous la relisez, puis vous l'envoyez.</p>
+      <p class="tete-page__chapo tete-page__engagement" data-arrivee>Chaque devis est établi après une visite sur place, en votre présence.</p>
     </div>
   </div>
   <svg class="route route--calme" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
@@ -87,13 +88,23 @@
           <label for="delai">Délai souhaité</label>
           <input id="delai" name="delai" type="text" placeholder="Ex. avant la saison des pluies">
         </div>
+        <fieldset class="champ champ--large choix">
+          <legend>Vos disponibilités pour la visite</legend>
+          <div class="choix__options">
+            <label><input type="checkbox" name="dispo" value="Matin"> Matin</label>
+            <label><input type="checkbox" name="dispo" value="Après-midi"> Après-midi</label>
+            <label><input type="checkbox" name="dispo" value="Samedi"> Samedi</label>
+          </div>
+          <small>Facultatif. La date exacte est fixée avec vous au téléphone.</small>
+        </fieldset>
         <div class="champ">
           <label for="nom">Votre nom ou votre entreprise</label>
           <input id="nom" name="nom" type="text" required autocomplete="name">
         </div>
         <div class="champ champ--large">
           <label for="telephone">Votre téléphone</label>
-          <input id="telephone" name="telephone" type="tel" autocomplete="tel" placeholder="07 00 00 00 00">
+          <input id="telephone" name="telephone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="07 00 00 00 00">
+          <small>Nous vous rappelons à ce numéro.</small>
         </div>
         <div class="champ champ--large">
           <label for="details">Précisions</label>
@@ -103,8 +114,54 @@
           <button type="submit" class="bouton bouton--action">Envoyer sur WhatsApp</button>
           <button type="button" id="devis-email" class="bouton bouton--contour">Envoyer par e-mail</button>
         </div>
-        <p class="note">Ce site n'enregistre rien&nbsp;: votre message part directement de votre téléphone ou de votre messagerie.</p>
+        <p class="note">Après réception de votre demande, nous vous appelons sous 48&nbsp;heures ouvrées pour convenir d'une visite sur place. Ce site n'enregistre rien&nbsp;: votre message part directement de votre téléphone ou de votre messagerie.</p>
       </form>
+
+      <!-- Remerciement : remplace le formulaire après le clic -->
+      <div id="devis-merci" class="merci" hidden>
+        <div class="merci__bandeau">
+          <p><strong>Dernière étape&nbsp;: appuyez sur «&nbsp;Envoyer&nbsp;» dans <span data-merci-canal>WhatsApp</span>.</strong> Sans cela, votre demande ne nous parvient pas.</p>
+          <p><span data-merci-souci>WhatsApp ne s'est pas ouvert&nbsp;?</span> <button type="button" class="merci__lien" id="merci-reessayer">Réessayer</button></p>
+        </div>
+
+        <h2 class="merci__titre" tabindex="-1">Merci de votre confiance<span data-merci-nom></span>.</h2>
+        <p class="merci__chapo">Dès sa réception, nous nous occupons personnellement de votre demande.</p>
+
+        <p class="merci__sous-titre">La suite, étape par étape</p>
+        <ol class="merci__etapes">
+          <li>
+            <span class="merci__num" aria-hidden="true">01</span>
+            <div>
+              <h3>Sous 48&nbsp;heures ouvrées</h3>
+              <p>Nous vous appelons au <span data-merci-tel></span> pour échanger sur votre projet.</p>
+            </div>
+          </li>
+          <li>
+            <span class="merci__num" aria-hidden="true">02</span>
+            <div>
+              <h3>Visite sur place, en votre présence</h3>
+              <p>Nous convenons ensemble d'une date. Notre technicien relève avec vous les mesures, l'accès et l'état du terrain.</p>
+              <p>La visite est gratuite dans les dix communes d'Abidjan. Au-delà, les frais de déplacement vous sont communiqués et soumis à votre accord avant la visite. Ils sont déduits du montant des travaux si vous nous les confiez.</p>
+            </div>
+          </li>
+          <li>
+            <span class="merci__num" aria-hidden="true">03</span>
+            <div>
+              <h3>Votre devis</h3>
+              <p>Il est établi à partir des relevés de la visite et détaillé poste par poste.</p>
+            </div>
+          </li>
+        </ol>
+
+        <p class="merci__mot">Depuis 2019, nos équipes interviennent sur des chantiers de voirie et d'assainissement, de Grand-Bassam à Bouaké. Nous serons heureux de mettre ce savoir-faire au service de votre chantier.</p>
+        <p class="merci__signature"><span>L'équipe ERS-CI</span>Des routes bien faites, des chantiers bien tenus.</p>
+
+        <div class="merci__retour">
+          <p class="merci__retour-titre">Un autre projet, une question&nbsp;? Nous restons à votre écoute.</p>
+          <p>WhatsApp <a href="https://wa.me/2250717859090">07 17 85 90 90</a> · Standard <a href="tel:+2250707330223">07 07 33 02 23</a>, du lundi au vendredi, 8&nbsp;h – 18&nbsp;h</p>
+          <p class="merci__liens"><a href="realisations.html" class="bouton bouton--contour">Voir nos réalisations</a> <button type="button" class="merci__lien" id="merci-nouvelle">Faire une autre demande</button></p>
+        </div>
+      </div>
     </div>
 
     <div>
