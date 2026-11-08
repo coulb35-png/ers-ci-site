@@ -59,58 +59,68 @@
   </svg>
 </section>
 <section class="section" aria-labelledby="titre-form">
-  <div class="conteneur deux-colonnes">
+  <div class="conteneur deux-colonnes deux-colonnes--fiche">
     <div>
       <h2 id="titre-form" class="visuellement-cache">Votre demande</h2>
-      <form id="form-devis" class="formulaire" novalidate>
-        <div class="champ champ--large">
-          <label for="travaux">Nature des travaux</label>
-          <select id="travaux" name="travaux" required>
-            <option value="">Choisir…</option>
-            <option>Bitumage ou revêtement de voie</option>
-            <option>Caniveaux, dalots, assainissement</option>
-            <option>Bordures, pavés, parking, trottoir</option>
-            <option>Route en terre, reprofilage, lotissement</option>
-            <option>Piste ou voirie de site minier ou industriel</option>
-            <option>Ouvrage de franchissement, génie civil</option>
-            <option>Autre</option>
-          </select>
-        </div>
-        <div class="champ">
-          <label for="lieu">Lieu du chantier</label>
-          <input id="lieu" name="lieu" type="text" required placeholder="Ville, quartier" autocomplete="address-level2">
-        </div>
-        <div class="champ">
-          <label for="quantite">Dimensions ou quantités</label>
-          <input id="quantite" name="quantite" type="text" placeholder="Ex. 120 m de caniveau, 800 m²">
-          <small>Une estimation suffit.</small>
-        </div>
-        <div class="champ">
-          <label for="delai">Délai souhaité</label>
-          <input id="delai" name="delai" type="text" placeholder="Ex. avant la saison des pluies">
-        </div>
-        <fieldset class="champ champ--large choix">
-          <legend>Vos disponibilités pour la visite</legend>
-          <div class="choix__options">
-            <label><input type="checkbox" name="dispo" value="Matin"> Matin</label>
-            <label><input type="checkbox" name="dispo" value="Après-midi"> Après-midi</label>
-            <label><input type="checkbox" name="dispo" value="Samedi"> Samedi</label>
+      <form id="form-devis" class="formulaire form-location" novalidate>
+        <div class="loc-bloc">
+          <p class="loc-bloc__titre"><span aria-hidden="true">01</span>Vos travaux</p>
+          <div class="champ champ--large">
+            <label for="travaux">Nature des travaux</label>
+            <select id="travaux" name="travaux" required>
+              <option value="">Choisir…</option>
+              <option>Bitumage ou revêtement de voie</option>
+              <option>Caniveaux, dalots, assainissement</option>
+              <option>Bordures, pavés, parking, trottoir</option>
+              <option>Route en terre, reprofilage, lotissement</option>
+              <option>Piste ou voirie de site minier ou industriel</option>
+              <option>Ouvrage de franchissement, génie civil</option>
+              <option>Autre</option>
+            </select>
           </div>
-          <small>Facultatif. La date exacte est fixée avec vous au téléphone.</small>
-        </fieldset>
-        <div class="champ">
-          <label for="nom">Votre nom ou votre entreprise</label>
-          <input id="nom" name="nom" type="text" required autocomplete="name">
+          <div class="champ">
+            <label for="lieu">Lieu du chantier</label>
+            <input id="lieu" name="lieu" type="text" required placeholder="Ville, quartier" autocomplete="address-level2">
+          </div>
+          <div class="champ">
+            <label for="delai">Délai souhaité <em>facultatif</em></label>
+            <input id="delai" name="delai" type="text" placeholder="Ex. sous trois mois">
+          </div>
+          <div class="champ champ--large">
+            <label for="quantite">Dimensions ou quantités <em>facultatif</em></label>
+            <input id="quantite" name="quantite" type="text" placeholder="Ex. 120 m de caniveau, 800 m²">
+          </div>
+          <div class="champ champ--large">
+            <label for="details">Précisions <em>facultatif</em></label>
+            <textarea id="details" name="details" placeholder="Accès au site, état actuel, plans disponibles…"></textarea>
+          </div>
         </div>
-        <div class="champ champ--large">
-          <label for="telephone">Votre téléphone</label>
-          <input id="telephone" name="telephone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="07 00 00 00 00">
-          <small>Nous vous rappelons à ce numéro.</small>
+
+        <div class="loc-bloc">
+          <p class="loc-bloc__titre"><span aria-hidden="true">02</span>La visite sur place</p>
+          <fieldset class="champ champ--large choix">
+            <legend>Vos disponibilités <em>facultatif</em></legend>
+            <div class="choix__options">
+              <label><input type="checkbox" name="dispo" value="Matin"> Matin</label>
+              <label><input type="checkbox" name="dispo" value="Après-midi"> Après-midi</label>
+              <label><input type="checkbox" name="dispo" value="Samedi"> Samedi</label>
+            </div>
+            <small>La date exacte est fixée avec vous au téléphone.</small>
+          </fieldset>
         </div>
-        <div class="champ champ--large">
-          <label for="details">Précisions</label>
-          <textarea id="details" name="details" placeholder="Accès au site, état actuel, plans disponibles…"></textarea>
+
+        <div class="loc-bloc">
+          <p class="loc-bloc__titre"><span aria-hidden="true">03</span>Vos coordonnées</p>
+          <div class="champ">
+            <label for="nom">Nom ou entreprise</label>
+            <input id="nom" name="nom" type="text" required autocomplete="name">
+          </div>
+          <div class="champ">
+            <label for="telephone">Téléphone</label>
+            <input id="telephone" name="telephone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="07 00 00 00 00">
+          </div>
         </div>
+
         <div class="formulaire__actions">
           <button type="submit" class="bouton bouton--action">Envoyer sur WhatsApp</button>
           <button type="button" id="devis-email" class="bouton bouton--contour">Envoyer par e-mail</button>
