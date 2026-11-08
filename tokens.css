@@ -19,7 +19,7 @@
   --trait-sombre: #3A4035;    /* filets sur asphalte */
 
   /* Typographie — Barlow : dessinée d'après la signalisation routière */
-  --police-titre: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --police-titre: "Barlow Condensed", "Arial Narrow", "Avenir Next Condensed", "sans-serif-condensed", sans-serif;
   --police-texte: "Barlow", system-ui, sans-serif;
   --police-technique: "IBM Plex Mono", ui-monospace, monospace;
   --t-xs: 0.8125rem;   /* 13 — étiquettes techniques */

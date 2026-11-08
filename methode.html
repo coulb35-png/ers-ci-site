@@ -14,7 +14,8 @@
 <meta property="og:image" content="https://ers-ci-site.vercel.app/images/chantier-accrochage.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -25,7 +26,7 @@
 <header class="entete">
   <div class="entete__barre">
     <a href="index.html" class="entete__logo" aria-label="ERS-CI, accueil">
-      <img src="images/logo-ers-ci.jpg" alt="ERS-CI" width="129" height="40">
+      <img src="images/logo-ers-ci.jpg" alt="ERS-CI" width="107" height="48">
     </a>
     <button class="entete__menu-bouton" aria-expanded="false" aria-controls="menu">
       <span class="burger" aria-hidden="true"></span><span class="visuellement-cache">Menu</span>
@@ -51,7 +52,7 @@
       <p class="tete-page__chapo" data-arrivee>La qualité se contrôle à chaque étape et se prouve par écrit. La sécurité des personnes et la protection de l'environnement sont des conditions d'exécution, au même titre que les délais.</p>
     </div>
     <figure class="tete-page__photo" data-arrivee>
-      <img src="images/chantier-accrochage.jpg" alt="Ouvrier en casque, gilet et gants appliquant la couche d'accrochage" width="1080" height="810">
+      <img src="images/chantier-accrochage.jpg" srcset="images/chantier-accrochage-720.jpg 720w, images/chantier-accrochage.jpg 810w" sizes="(max-width: 699px) 360px, 50vw" alt="Ouvrier en casque, gilet et gants appliquant la couche d'accrochage" width="1080" height="810">
     </figure>
   </div>
   <svg class="route route--calme" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
@@ -81,7 +82,7 @@
       <p class="etiquette">02 — Un exemple</p>
       <h2 id="titre-bb" class="section__titre">La mise en œuvre d'un béton bitumineux.</h2>
       <p class="section__chapo" style="color:var(--encre-douce)">Six étapes, chacune contrôlée et consignée sur la fiche journalière du chantier.</p>
-      <img src="images/chantier-tremie.jpg" alt="Trémie du finisseur chargée d'enrobé, équipe au réglage en arrière-plan" width="1080" height="810" loading="lazy" style="border-radius:var(--rayon-doux);margin-top:var(--e-5)">
+      <img src="images/chantier-tremie.jpg" srcset="images/chantier-tremie-720.jpg 720w, images/chantier-tremie.jpg 1080w" sizes="(max-width: 699px) 360px, 50vw" alt="Trémie du finisseur chargée d'enrobé, équipe au réglage en arrière-plan" width="1080" height="810" loading="lazy" style="border-radius:var(--rayon-doux);margin-top:var(--e-5)">
     </div>
     <table class="tableau" data-arrivee>
       <thead><tr><th scope="col">Étape</th><th scope="col">Mode opératoire</th></tr></thead>
@@ -142,7 +143,7 @@
           <li>Balisage des zones de travail, gestion de la circulation, protection des riverains</li>
           <li>Inspections régulières et registre des incidents, avec analyse des causes</li>
         </ul>
-        <img src="images/chantier-epi.jpg" alt="Casques et gilets haute visibilité neufs prêts à être distribués" width="1080" height="810" loading="lazy" style="border-radius:var(--rayon-doux);margin-top:var(--e-5)">
+        <img src="images/chantier-epi.jpg" srcset="images/chantier-epi-720.jpg 720w, images/chantier-epi.jpg 1080w" sizes="(max-width: 699px) 360px, 50vw" alt="Casques et gilets haute visibilité neufs prêts à être distribués" width="1080" height="810" loading="lazy" style="border-radius:var(--rayon-doux);margin-top:var(--e-5)">
       </div>
       <table class="tableau" data-arrivee>
         <caption>Principaux risques et parades</caption>
@@ -197,7 +198,7 @@
 <footer class="pied">
   <div class="conteneur pied__grille">
     <div>
-      <img src="images/logo-ers-ci.jpg" alt="ERS-CI" width="129" height="40" class="pied__logo">
+      <img src="images/logo-ers-ci.jpg" alt="ERS-CI" width="107" height="48" class="pied__logo">
       <p class="pied__signature">Des routes bien faites, des chantiers bien tenus.</p>
     </div>
     <div>

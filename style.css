@@ -1,7 +1,8 @@
 /* ERS-CI — feuille commune. N'utilise que les jetons de tokens.css. */
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+/* scroll-padding : un lien vers une section ne la cache pas sous l'en-tête collé */
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 5.5rem; color-scheme: only light; }
 body {
   margin: 0;
   background: var(--papier);
@@ -59,7 +60,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--vert-signal); o
 .entete { position: sticky; top: 0; z-index: 50; background: var(--blanc); border-bottom: 1px solid var(--trait); }
 .entete__barre { max-width: var(--largeur); margin: 0 auto; padding: var(--e-2) var(--e-4); display: flex; align-items: center; justify-content: space-between; gap: var(--e-4); }
 .entete__logo { display: inline-flex; align-items: center; min-height: 48px; }
-.entete__logo img { height: 40px; width: auto; }
+.entete__logo img { height: 48px; width: auto; }
 .entete__menu-bouton { width: 48px; height: 48px; border: 1px solid var(--trait); border-radius: var(--rayon-net); background: none; display: grid; place-items: center; cursor: pointer; }
 .burger, .burger::before, .burger::after { display: block; width: 20px; height: 2px; background: var(--encre); position: relative; transition: transform var(--duree-court) var(--courbe), opacity var(--duree-court); }
 .burger::before, .burger::after { content: ""; position: absolute; left: 0; }
@@ -167,8 +168,10 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--vert-signal); o
   .phase { padding-left: 0; padding-top: var(--e-8); }
   .phase::before { left: 3rem; right: calc(-1 * var(--e-5)); top: 1.45rem; bottom: auto; width: auto; height: 2px; }
 }
-.js .phases .phase { opacity: 0; transform: translateY(16px); transition: opacity var(--duree-arrivee) var(--courbe), transform var(--duree-arrivee) var(--courbe); }
-.js .phases.est-visible .phase { opacity: 1; transform: none; }
+@media (min-width: 900px) {
+  .js .phases .phase { opacity: 0; transform: translateY(16px); transition: opacity var(--duree-arrivee) var(--courbe), transform var(--duree-arrivee) var(--courbe); }
+  .js .phases.est-visible .phase { opacity: 1; transform: none; }
+}
 .js .phases.est-visible .phase:nth-child(2) { transition-delay: 120ms; }
 .js .phases.est-visible .phase:nth-child(3) { transition-delay: 240ms; }
 .js .phases.est-visible .phase:nth-child(4) { transition-delay: 360ms; }
@@ -439,7 +442,7 @@ a.coordonnee:hover { border-color: var(--vert-action); }
 /* Le pied garde en bas la place du bouton WhatsApp flottant : aucune ligne ne finit dessous */
 .pied { background: var(--asphalte); color: var(--sur-sombre-doux); padding: var(--e-8) 0 calc(var(--e-9) + var(--e-2)); }
 .pied__grille { display: grid; gap: var(--e-6); }
-.pied__logo { height: 40px; width: auto; border-radius: var(--rayon-net); margin-bottom: var(--e-4); }
+.pied__logo { box-sizing: content-box; height: 56px; width: auto; padding: var(--e-1) var(--e-2); background: var(--blanc); border-radius: var(--rayon-net); margin-bottom: var(--e-4); }
 .pied__signature { font-family: var(--police-titre); font-weight: 700; font-size: var(--t-l); color: var(--sur-sombre); line-height: 1.15; max-width: 18ch; }
 .pied__titre { font-family: var(--police-technique); font-size: var(--t-xs); font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; color: var(--vert-signal); margin-bottom: var(--e-4); }
 .pied__lien { color: var(--sur-sombre); text-decoration: none; display: inline-block; min-height: 44px; padding: var(--e-2) 0; }
@@ -460,9 +463,28 @@ a.coordonnee:hover { border-color: var(--vert-action); }
 }
 .whatsapp-flottant:hover { background: var(--vert-action-survol); transform: translateY(-2px); }
 
-/* Arrivées : visibles par défaut, cachées seulement si le script tourne */
-.js [data-arrivee] { opacity: 0; transform: translateY(24px); transition: opacity var(--duree-arrivee) var(--courbe), transform var(--duree-arrivee) var(--courbe); }
-.js [data-arrivee].est-visible { opacity: 1; transform: none; }
+/* Arrivées : seulement sur grand écran. Sur téléphone, tout est visible tout de suite. */
+@media (min-width: 900px) {
+  .js [data-arrivee] { opacity: 0; transform: translateY(24px); transition: opacity var(--duree-arrivee) var(--courbe), transform var(--duree-arrivee) var(--courbe); }
+  .js [data-arrivee].est-visible { opacity: 1; transform: none; }
+}
+
+/* Téléphone : lisible en plein soleil, rien ne cache le texte, peu d'animations */
+@media (max-width: 699px) {
+  :root { --t-xs: 0.875rem; --encre-douce: #3B4037; --sur-sombre-doux: #DADDD2; }
+  body { font-weight: 500; }
+  .whatsapp-flottant { width: 56px; height: 56px; min-height: 0; padding: 0; justify-content: center; }
+  .whatsapp-flottant span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  body:has(#form-devis) .whatsapp-flottant { display: none; }
+}
+@media (max-width: 899px) {
+  .js .route.est-tracee .route__marquage { animation: tracer 1600ms var(--courbe) forwards; }
+  .diaporama img { transform: none; }
+}
+@media (max-width: 1099px) {
+  .menu.est-ouvert { max-height: calc(100vh - 4.5rem); max-height: calc(100dvh - 4.5rem); overflow-y: auto; }
+}
+@media (max-height: 500px) { .entete { position: static; } }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition-duration: 1ms !important; }

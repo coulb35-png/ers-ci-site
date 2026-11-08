@@ -14,6 +14,12 @@
       bouton.setAttribute('aria-expanded', String(!ouvert));
       menu.classList.toggle('est-ouvert', !ouvert);
     });
+    // Toucher en dehors du menu le referme
+    document.addEventListener('click', function (e) {
+      if (!menu.classList.contains('est-ouvert') || menu.contains(e.target) || bouton.contains(e.target)) return;
+      bouton.setAttribute('aria-expanded', 'false');
+      menu.classList.remove('est-ouvert');
+    });
   }
 
   var annee = document.querySelector('[data-annee]');

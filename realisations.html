@@ -14,7 +14,8 @@
 <meta property="og:image" content="https://ers-ci-site.vercel.app/images/chantier-voie-terminee.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -25,7 +26,7 @@
 <header class="entete">
   <div class="entete__barre">
     <a href="index.html" class="entete__logo" aria-label="ERS-CI, accueil">
-      <img src="images/logo-ers-ci.jpg" alt="ERS-CI" width="129" height="40">
+      <img src="images/logo-ers-ci.jpg" alt="ERS-CI" width="107" height="48">
     </a>
     <button class="entete__menu-bouton" aria-expanded="false" aria-controls="menu">
       <span class="burger" aria-hidden="true"></span><span class="visuellement-cache">Menu</span>
@@ -51,7 +52,7 @@
       <p class="tete-page__chapo" data-arrivee>Chaque fiche dit la nature des travaux, le lieu, l'année et la quantité. Les attestations de bonne exécution, contrats et procès-verbaux de réception sont présentés sur demande.</p>
     </div>
     <figure class="tete-page__photo" data-arrivee>
-      <img src="images/chantier-voie-terminee.jpg" alt="Voie urbaine fraîchement bitumée, finisseur au fond" width="1080" height="810">
+      <img src="images/chantier-voie-terminee.jpg" srcset="images/chantier-voie-terminee-720.jpg 720w, images/chantier-voie-terminee.jpg 1080w" sizes="(max-width: 699px) 360px, 50vw" alt="Voie urbaine fraîchement bitumée, finisseur au fond" width="1080" height="810">
     </figure>
   </div>
   <svg class="route route--calme" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
@@ -79,7 +80,7 @@
     </div>
     <div class="fiches--toutes">
       <article class="fiche fiche--photo" data-metier="bitumage" data-arrivee>
-        <img src="images/chantier-finisseur-equipe.jpg" alt="Équipe en casque et gilet derrière le finisseur, voirie de Djorogobité" width="1080" height="810" loading="lazy">
+        <img src="images/chantier-finisseur-equipe.jpg" srcset="images/chantier-finisseur-equipe-720.jpg 720w, images/chantier-finisseur-equipe.jpg 1080w" sizes="(max-width: 699px) 360px, 50vw" alt="Équipe en casque et gilet derrière le finisseur, voirie de Djorogobité" width="1080" height="810" loading="lazy">
         <div class="fiche__corps">
           <p class="fiche__meta">Abidjan · Djorogobité · 2026</p>
           <h3>Bitumage de voirie en béton bitumineux</h3>
@@ -146,12 +147,12 @@
       <p class="section__chapo">Du support préparé à la voie livrée, pour ESPINA.</p>
     </header>
     <div class="galerie">
-      <figure data-arrivee><img src="images/chantier-phase1.jpg" alt="Voie préparée avant revêtement, bordures posées" width="1080" height="810" loading="lazy"><figcaption>1 · Support préparé, bordures posées</figcaption></figure>
-      <figure data-arrivee><img src="images/chantier-accrochage-2.jpg" alt="Ouvrier en casque et gilet préparant l'émulsion de la couche d'accrochage" width="810" height="1080" loading="lazy"><figcaption>2 · Préparation de la couche d'accrochage</figcaption></figure>
-      <figure data-arrivee><img src="images/chantier-repandage.jpg" alt="Couche d'accrochage répandue, finisseur en approche" width="1080" height="810" loading="lazy"><figcaption>3 · Accrochage répandu, finisseur en approche</figcaption></figure>
-      <figure data-arrivee><img src="images/chantier-tremie.jpg" alt="Trémie du finisseur chargée d'enrobé, équipe au réglage" width="1080" height="810" loading="lazy"><figcaption>4 · Mise en œuvre de l'enrobé au finisseur</figcaption></figure>
-      <figure data-arrivee><img src="images/chantier-reglage-enrobe.jpg" alt="Réglage manuel de l'enrobé derrière le finisseur" width="1080" height="810" loading="lazy"><figcaption>5 · Réglage et compactage</figcaption></figure>
-      <figure data-arrivee><img src="images/chantier-voie-finie-2.jpg" alt="Carrefour revêtu, chantier balisé" width="1000" height="750" loading="lazy"><figcaption>6 · Voie revêtue, chantier balisé</figcaption></figure>
+      <figure data-arrivee><img src="images/chantier-phase1.jpg" srcset="images/chantier-phase1-720.jpg 720w, images/chantier-phase1.jpg 1080w" sizes="(max-width: 699px) 360px, 50vw" alt="Voie préparée avant revêtement, bordures posées" width="1080" height="810" loading="lazy"><figcaption>1 · Support préparé, bordures posées</figcaption></figure>
+      <figure data-arrivee><img src="images/chantier-accrochage-2.jpg" srcset="images/chantier-accrochage-2-720.jpg 720w, images/chantier-accrochage-2.jpg 810w" sizes="(max-width: 699px) 360px, 50vw" alt="Ouvrier en casque et gilet préparant l'émulsion de la couche d'accrochage" width="810" height="1080" loading="lazy"><figcaption>2 · Préparation de la couche d'accrochage</figcaption></figure>
+      <figure data-arrivee><img src="images/chantier-repandage.jpg" srcset="images/chantier-repandage-720.jpg 720w, images/chantier-repandage.jpg 1080w" sizes="(max-width: 699px) 360px, 50vw" alt="Couche d'accrochage répandue, finisseur en approche" width="1080" height="810" loading="lazy"><figcaption>3 · Accrochage répandu, finisseur en approche</figcaption></figure>
+      <figure data-arrivee><img src="images/chantier-tremie.jpg" srcset="images/chantier-tremie-720.jpg 720w, images/chantier-tremie.jpg 1080w" sizes="(max-width: 699px) 360px, 50vw" alt="Trémie du finisseur chargée d'enrobé, équipe au réglage" width="1080" height="810" loading="lazy"><figcaption>4 · Mise en œuvre de l'enrobé au finisseur</figcaption></figure>
+      <figure data-arrivee><img src="images/chantier-reglage-enrobe.jpg" srcset="images/chantier-reglage-enrobe-720.jpg 720w, images/chantier-reglage-enrobe.jpg 1080w" sizes="(max-width: 699px) 360px, 50vw" alt="Réglage manuel de l'enrobé derrière le finisseur" width="1080" height="810" loading="lazy"><figcaption>5 · Réglage et compactage</figcaption></figure>
+      <figure data-arrivee><img src="images/chantier-voie-finie-2.jpg" srcset="images/chantier-voie-finie-2-720.jpg 720w, images/chantier-voie-finie-2.jpg 1000w" sizes="(max-width: 699px) 360px, 50vw" alt="Carrefour revêtu, chantier balisé" width="1000" height="750" loading="lazy"><figcaption>6 · Voie revêtue, chantier balisé</figcaption></figure>
     </div>
   </div>
 </section>
@@ -171,7 +172,7 @@
 <footer class="pied">
   <div class="conteneur pied__grille">
     <div>
-      <img src="images/logo-ers-ci.jpg" alt="ERS-CI" width="129" height="40" class="pied__logo">
+      <img src="images/logo-ers-ci.jpg" alt="ERS-CI" width="107" height="48" class="pied__logo">
       <p class="pied__signature">Des routes bien faites, des chantiers bien tenus.</p>
     </div>
     <div>

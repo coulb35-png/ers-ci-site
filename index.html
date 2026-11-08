@@ -14,7 +14,8 @@
 <meta property="og:image" content="https://ers-ci-site.vercel.app/images/chantier-finisseur-equipe.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
@@ -37,7 +38,7 @@
   "openingHours": "Mo-Fr 08:00-18:00",
   "image": "https://ers-ci-site.vercel.app/images/chantier-finisseur-equipe.jpg",
   "url": "https://ers-ci-site.vercel.app/",
-  "logo": "https://ers-ci-site.vercel.app/images/logo-ers-ci.jpg",
+  "logo": "https://ers-ci-site.vercel.app/images/logo-ers-ci-grand.png",
   "sameAs": ["https://www.linkedin.com/company/ers-ci"]
 }
 </script>
@@ -49,7 +50,7 @@
 <header class="entete">
   <div class="entete__barre">
     <a href="index.html" class="entete__logo" aria-label="ERS-CI, accueil">
-      <img src="images/logo-ers-ci.jpg" alt="ERS-CI" width="129" height="40">
+      <img src="images/logo-ers-ci.jpg" alt="ERS-CI" width="107" height="48">
     </a>
     <button class="entete__menu-bouton" aria-expanded="false" aria-controls="menu">
       <span class="burger" aria-hidden="true"></span><span class="visuellement-cache">Menu</span>
@@ -86,9 +87,9 @@
 
     <div class="ouverture__visuel" aria-hidden="true">
       <div class="diaporama">
-        <img src="images/chantier-finisseur-equipe.jpg" alt="" class="est-visible" width="1080" height="810">
-        <img src="images/chantier-finisseur-rue.jpg" alt="" width="1080" height="810" loading="lazy">
-        <img src="images/chantier-voie-terminee.jpg" alt="" width="1080" height="810" loading="lazy">
+        <img src="images/chantier-finisseur-equipe.jpg" srcset="images/chantier-finisseur-equipe-720.jpg 720w, images/chantier-finisseur-equipe.jpg 1080w" sizes="(max-width: 699px) 360px, 50vw" alt="" class="est-visible" width="1080" height="810">
+        <img src="images/chantier-finisseur-rue.jpg" srcset="images/chantier-finisseur-rue-720.jpg 720w, images/chantier-finisseur-rue.jpg 1080w" sizes="(max-width: 699px) 360px, 50vw" alt="" width="1080" height="810" loading="lazy">
+        <img src="images/chantier-voie-terminee.jpg" srcset="images/chantier-voie-terminee-720.jpg 720w, images/chantier-voie-terminee.jpg 1080w" sizes="(max-width: 699px) 360px, 50vw" alt="" width="1080" height="810" loading="lazy">
       </div>
       <p class="ouverture__legende">Bitumage de voirie en béton bitumineux, Djorogobité (Abidjan), 2026</p>
     </div>
@@ -138,7 +139,7 @@
 
     <div class="metiers">
       <figure class="metiers__photo" data-arrivee>
-        <img src="images/chantier-reglage-enrobe.jpg" alt="Équipe en casque et gilet réglant l'enrobé derrière le finisseur" width="1080" height="810" loading="lazy">
+        <img src="images/chantier-reglage-enrobe.jpg" srcset="images/chantier-reglage-enrobe-720.jpg 720w, images/chantier-reglage-enrobe.jpg 1080w" sizes="(max-width: 699px) 360px, 50vw" alt="Équipe en casque et gilet réglant l'enrobé derrière le finisseur" width="1080" height="810" loading="lazy">
       </figure>
       <ol class="metiers__liste">
         <li data-arrivee><span class="metiers__num">01</span><div><h3>Bitumage et revêtements</h3><p>Béton bitumineux à chaud, enduits monocouche et bicouche, imprégnation, point-à-temps et reprise de nids-de-poule.</p></div></li>
@@ -171,7 +172,7 @@
     </ol>
 
     <div class="securite">
-      <img src="images/chantier-accrochage.jpg" alt="Ouvrier en casque, gilet et gants appliquant la couche d'accrochage" width="1080" height="810" loading="lazy" data-arrivee>
+      <img src="images/chantier-accrochage.jpg" srcset="images/chantier-accrochage-720.jpg 720w, images/chantier-accrochage.jpg 810w" sizes="(max-width: 699px) 360px, 50vw" alt="Ouvrier en casque, gilet et gants appliquant la couche d'accrochage" width="1080" height="810" loading="lazy" data-arrivee>
       <div data-arrivee>
         <h3 class="securite__titre">La sécurité, chaque matin.</h3>
         <p>Briefing avant la prise de poste, casque, gilet et chaussures obligatoires, balisage des zones de travail et protection des riverains. Un manuel HSE de 12 chapitres et 36 fiches opérationnelles encadre nos chantiers.</p>
@@ -191,7 +192,7 @@
 
     <div class="fiches">
       <article class="fiche fiche--photo" data-arrivee>
-        <img src="images/chantier-voie-terminee.jpg" alt="Voie urbaine fraîchement bitumée, finisseur au fond" width="1080" height="810" loading="lazy">
+        <img src="images/chantier-voie-terminee.jpg" srcset="images/chantier-voie-terminee-720.jpg 720w, images/chantier-voie-terminee.jpg 1080w" sizes="(max-width: 699px) 360px, 50vw" alt="Voie urbaine fraîchement bitumée, finisseur au fond" width="1080" height="810" loading="lazy">
         <div class="fiche__corps">
           <p class="fiche__meta">Abidjan · Djorogobité · 2026</p>
           <h3>Bitumage de voirie en béton bitumineux</h3>
@@ -266,7 +267,7 @@
 <footer class="pied">
   <div class="conteneur pied__grille">
     <div>
-      <img src="images/logo-ers-ci.jpg" alt="ERS-CI" width="129" height="40" class="pied__logo">
+      <img src="images/logo-ers-ci.jpg" alt="ERS-CI" width="107" height="48" class="pied__logo">
       <p class="pied__signature">Des routes bien faites, des chantiers bien tenus.</p>
     </div>
     <div>
