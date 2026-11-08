@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#171A16">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Louer du matériel avec opérateur | ERS-CI</title>
+<meta name="description" content="Location de scie à sol et de compacteur manuel double bille, toujours avec opérateur. Demandez la disponibilité en quelques champs.">
+<meta property="og:title" content="Louer du matériel avec opérateur | ERS-CI">
+<meta property="og:description" content="Location de scie à sol et de compacteur manuel double bille, toujours avec opérateur. Demandez la disponibilité en quelques champs.">
+<meta property="og:url" content="https://ers-ci-site.vercel.app/location.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://ers-ci-site.vercel.app/images/chantier-finisseur-equipe.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="evitement" href="#contenu">Aller au contenu</a>
+
+<header class="entete">
+  <div class="entete__barre">
+    <a href="index.html" class="entete__logo" aria-label="ERS-CI, accueil">
+      <img src="images/logo-ers-ci.jpg" alt="ERS-CI" width="107" height="48">
+    </a>
+    <button class="entete__menu-bouton" aria-expanded="false" aria-controls="menu">
+      <span class="burger" aria-hidden="true"></span><span class="visuellement-cache">Menu</span>
+    </button>
+    <nav id="menu" class="menu" aria-label="Navigation principale">
+      <a href="metiers.html">Nos métiers</a>
+      <a href="realisations.html">Réalisations</a>
+      <a href="methode.html">Méthode et sécurité</a>
+      <a href="sous-traitance.html">Sous-traitance</a>
+      <a href="a-propos.html">À propos</a>
+      <a href="contact.html">Contact</a>
+      <a href="devis.html" class="bouton bouton--action menu__devis">Demander un devis</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+<section class="tete-page">
+  <div class="tete-page__grille tete-page__grille--seule">
+    <div>
+      <p class="fil"><a href="index.html">Accueil</a> / <a href="metiers.html#location">Nos métiers</a> / Location de matériel</p>
+      <h1 class="tete-page__titre" data-arrivee>Matériel et opérateur, à votre disposition.</h1>
+      <p class="tete-page__chapo" data-arrivee>Quelques informations suffisent&nbsp;: votre demande se rédige d'elle-même, il ne vous reste qu'à l'envoyer.</p>
+      <p class="tete-page__chapo tete-page__engagement" data-arrivee>Chaque location comprend son opérateur.</p>
+    </div>
+  </div>
+  <svg class="route route--calme" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+    <path class="route__chaussee" d="M0 86 C 360 30, 720 120, 1080 60 S 1440 50, 1440 50" />
+    <path class="route__marquage" d="M0 86 C 360 30, 720 120, 1080 60 S 1440 50, 1440 50" />
+  </svg>
+</section>
+<section class="section" aria-labelledby="titre-form">
+  <div class="conteneur deux-colonnes deux-colonnes--fiche">
+    <div>
+      <h2 id="titre-form" class="visuellement-cache">Votre demande de location</h2>
+      <form id="form-location" class="formulaire form-location" novalidate>
+        <div class="loc-bloc">
+          <p class="loc-bloc__titre"><span aria-hidden="true">01</span>Votre location</p>
+          <div class="champ champ--large">
+            <label for="materiel">Matériel souhaité</label>
+            <select id="materiel" name="materiel" required>
+              <option value="">Choisir…</option>
+              <option data-tarif="scie">Scie à sol</option>
+              <option data-tarif="compacteur">Compacteur manuel double bille</option>
+              <option data-tarif="scie compacteur">Scie à sol et compacteur double bille</option>
+            </select>
+          </div>
+          <div class="champ">
+            <label for="debut">Date de début</label>
+            <input id="debut" name="debut" type="date" required>
+          </div>
+          <div class="champ">
+            <label for="jours">Jours avec opérateur</label>
+            <input id="jours" name="jours" type="number" required min="1" step="1" inputmode="numeric" placeholder="Ex. 3">
+          </div>
+          <div id="mini-devis" class="champ--large mini-devis" role="status" hidden></div>
+        </div>
+
+        <div class="loc-bloc">
+          <p class="loc-bloc__titre"><span aria-hidden="true">02</span>Votre chantier</p>
+          <div class="champ">
+            <label for="lieu">Site du chantier</label>
+            <input id="lieu" name="lieu" type="text" required placeholder="Ville, quartier, repère" autocomplete="address-level2">
+          </div>
+          <div class="champ">
+            <label for="travaux">Travail à réaliser</label>
+            <input id="travaux" name="travaux" type="text" required placeholder="Ex. découpe de chaussée">
+          </div>
+          <div class="champ champ--large">
+            <label for="quantite">Quantité estimée <em>facultatif</em></label>
+            <input id="quantite" name="quantite" type="text" placeholder="Ex. 80 m ou 200 m²">
+          </div>
+          <div class="champ champ--large">
+            <label for="details">Précisions <em>facultatif</em></label>
+            <textarea id="details" name="details" placeholder="Accès au site, horaires, épaisseur à découper, point d'eau…"></textarea>
+          </div>
+        </div>
+
+        <div class="loc-bloc">
+          <p class="loc-bloc__titre"><span aria-hidden="true">03</span>Vos coordonnées</p>
+          <div class="champ">
+            <label for="profil">Vous êtes</label>
+            <select id="profil" name="profil" required>
+              <option value="">Choisir…</option>
+              <option>Une entreprise</option>
+              <option>Un particulier</option>
+            </select>
+          </div>
+          <div class="champ">
+            <label for="nom">Nom ou entreprise</label>
+            <input id="nom" name="nom" type="text" required autocomplete="name">
+          </div>
+          <div class="champ">
+            <label for="telephone">Téléphone</label>
+            <input id="telephone" name="telephone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="07 00 00 00 00">
+          </div>
+          <div class="champ">
+            <label for="contact">Personne à contacter</label>
+            <input id="contact" name="contact" type="text" placeholder="Facultatif">
+          </div>
+          <div class="champ champ--large">
+            <label for="email">E-mail <em>facultatif</em></label>
+            <input id="email" name="email" type="email" autocomplete="email">
+          </div>
+        </div>
+
+        <div class="formulaire__actions">
+          <button type="submit" class="bouton bouton--action">Envoyer sur WhatsApp</button>
+          <button type="button" id="devis-email" class="bouton bouton--contour">Envoyer par e-mail</button>
+        </div>
+        <p class="note">Nous vous appelons sous 48&nbsp;heures ouvrées au numéro indiqué, pour confirmer la disponibilité et les conditions. Ce site ne conserve aucune de vos informations.</p>
+      </form>
+
+      <!-- Remerciement : remplace le formulaire après le clic -->
+      <div id="devis-merci" class="merci" hidden>
+        <div class="merci__bandeau">
+          <p><strong>Dernière étape&nbsp;: appuyez sur «&nbsp;Envoyer&nbsp;» dans <span data-merci-canal>WhatsApp</span>.</strong> Sans cela, votre demande ne nous parvient pas.</p>
+          <p><span data-merci-souci>WhatsApp ne s'est pas ouvert&nbsp;?</span> <button type="button" class="merci__lien" id="merci-reessayer">Réessayer</button></p>
+        </div>
+
+        <h2 class="merci__titre" tabindex="-1">Merci de votre confiance<span data-merci-nom></span>.</h2>
+        <p class="merci__chapo">Dès sa réception, nous nous occupons personnellement de votre demande.</p>
+
+        <p class="merci__sous-titre">La suite, étape par étape</p>
+        <ol class="merci__etapes">
+          <li>
+            <span class="merci__num" aria-hidden="true">01</span>
+            <div>
+              <h3>Sous 48&nbsp;heures ouvrées</h3>
+              <p>Nous vous appelons au <span data-merci-tel></span> pour confirmer la disponibilité du matériel et de l'opérateur.</p>
+            </div>
+          </li>
+          <li>
+            <span class="merci__num" aria-hidden="true">02</span>
+            <div>
+              <h3>Prix et conditions</h3>
+              <p>Nous vous les communiquons avant tout engagement, selon le matériel, la durée et le site.</p>
+            </div>
+          </li>
+          <li>
+            <span class="merci__num" aria-hidden="true">03</span>
+            <div>
+              <h3>Intervention sur votre chantier</h3>
+              <p>L'opérateur met le matériel en œuvre à la date convenue ensemble.</p>
+            </div>
+          </li>
+        </ol>
+
+        <p class="merci__signature"><span>L'équipe ERS-CI</span>Des routes bien faites, des chantiers bien tenus.</p>
+
+        <div class="merci__retour">
+          <p class="merci__retour-titre">Un autre besoin, une question&nbsp;? Nous restons à votre écoute.</p>
+          <p>WhatsApp <a href="https://wa.me/2250717859090">07 17 85 90 90</a> · Standard <a href="tel:+2250707330223">07 07 33 02 23</a>, du lundi au vendredi, 8&nbsp;h – 18&nbsp;h</p>
+          <p class="merci__liens"><a href="metiers.html" class="bouton bouton--contour">Voir nos métiers</a> <button type="button" class="merci__lien" id="merci-nouvelle">Faire une autre demande</button></p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <p class="etiquette">Le matériel</p>
+      <ul class="puces">
+        <li><strong>Scie à sol</strong>&nbsp;: découpe de revêtements, joints, purges</li>
+        <li><strong>Compacteur manuel double bille</strong>&nbsp;: tranchées, remblais d'ouvrages, zones étroites</li>
+      </ul>
+      <p class="etiquette" style="margin-top:var(--e-6)">Nos conditions</p>
+      <ul class="puces">
+        <li>Chaque machine est conduite par un opérateur&nbsp;: nous ne louons jamais le matériel seul.</li>
+        <li>Scie à sol&nbsp;: <strong>95&nbsp;000&nbsp;FCFA TTC par jour, opérateur compris</strong>. Lame non incluse, eau à prévoir pour la découpe.</li>
+        <li>Compacteur manuel double bille&nbsp;: <strong>à partir de 45&nbsp;000&nbsp;FCFA TTC par jour, opérateur compris</strong>.</li>
+        <li>Les deux machines louées ensemble&nbsp;: <strong>5&nbsp;000&nbsp;FCFA de remise</strong> sur le prix total.</li>
+        <li>Les frais de déplacement du matériel jusqu'au chantier ne sont pas compris dans ces prix.</li>
+        <li>La disponibilité est confirmée par téléphone. Selon les périodes, la scie à sol peut être fournie par un partenaire d'ERS-CI.</li>
+        <li>Le montant total vous est confirmé avant tout engagement.</li>
+      </ul>
+      <p class="note" style="margin-top:var(--e-6)">Vous préférez échanger de vive voix&nbsp;? Standard&nbsp;: <a href="tel:+2250707330223">07 07 33 02 23</a>, du lundi au vendredi, 8 h – 18 h.</p>
+      <p class="note">Au-delà de la location, nos équipes peuvent réaliser tout votre chantier. <a href="devis.html">Demandez votre devis.</a></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pied">
+  <div class="conteneur pied__grille">
+    <div>
+      <img src="images/logo-ers-ci.jpg" alt="ERS-CI" width="107" height="48" class="pied__logo">
+      <p class="pied__signature">Des routes bien faites, des chantiers bien tenus.</p>
+    </div>
+    <div>
+      <h2 class="pied__titre">Nous joindre</h2>
+      <p><a href="https://wa.me/2250717859090?text=Bonjour%20ERS-CI%2C%20je%20souhaite%20un%20devis%20pour%20des%20travaux." class="pied__lien">WhatsApp&nbsp;: 07 17 85 90 90</a></p>
+      <p><a href="tel:+2250707330223" class="pied__lien">Standard&nbsp;: 07 07 33 02 23</a></p>
+      <p><a href="mailto:coulb35@gmail.com" class="pied__lien">coulb35@gmail.com</a></p>
+      <p><a href="https://www.linkedin.com/company/ers-ci" class="pied__lien" target="_blank" rel="noopener">LinkedIn&nbsp;: ERS-CI</a></p>
+    </div>
+    <div>
+      <h2 class="pied__titre">Nous trouver</h2>
+      <p>Abobo PK18, route d'Anyama<br>Abidjan, Côte d'Ivoire<br>09 BP 2759 Abidjan 09</p>
+      <p>Du lundi au vendredi, 8 h – 18 h</p>
+    </div>
+  </div>
+  <div class="conteneur pied__legal">
+    <p>ERS-CI SARL · Capital 1 000 000 FCFA · RCCM CI-ABJ-2019-B-13371 · © <span data-annee>2026</span></p>
+    <a href="mentions-legales.html" class="pied__lien">Mentions légales</a>
+  </div>
+</footer>
+
+<a class="whatsapp-flottant" href="https://wa.me/2250717859090?text=Bonjour%20ERS-CI%2C%20je%20souhaite%20louer%20du%20mat%C3%A9riel%20avec%20op%C3%A9rateur." aria-label="Nous écrire sur WhatsApp">
+  <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.6 11.6 0 0 0 4.4 3.9c1.7.7 2.3.8 3.1.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3Z"/></svg>
+  <span>WhatsApp</span>
+</a>
+
+<script src="main.js" defer></script>
+</body>
+</html>

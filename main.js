@@ -91,15 +91,86 @@
 
   // Devis : compose le message, puis l'ouvre dans WhatsApp ou dans la messagerie.
   // Rien n'est envoyé ni enregistré par le site lui-même.
-  var form = document.getElementById('form-devis');
+  // La demande de location suit le même chemin, avec ses propres champs.
+  var form = document.getElementById('form-devis') || document.getElementById('form-location');
   if (form) {
+    var location_ = form.id === 'form-location';
+    var objet = location_ ? 'Demande de location avec opérateur' : 'Demande de devis';
+    var intro = location_ ? 'Bonjour ERS-CI, je souhaite louer du matériel avec opérateur.' : 'Bonjour ERS-CI, je souhaite un devis.';
+    var champs = location_
+      ? [['materiel', 'Matériel'], ['lieu', 'Site du chantier'], ['travaux', 'Travail à réaliser'], ['debut', 'Début souhaité'], ['jours', 'Durée avec opérateur'], ['quantite', 'Quantité estimée'], ['details', 'Précisions'], ['profil', 'Client'], ['nom', 'Nom ou entreprise'], ['contact', 'Personne à contacter'], ['telephone', 'Téléphone'], ['email', 'E-mail']]
+      : [['travaux', 'Travaux'], ['lieu', 'Lieu'], ['quantite', 'Dimensions ou quantités'], ['delai', 'Délai souhaité'], ['dispo', 'Disponibilités pour la visite'], ['details', 'Précisions'], ['nom', 'Nom'], ['telephone', 'Téléphone']];
+    // La date de début ne peut pas être passée
+    if (form.debut) form.debut.min = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+    // Mini-devis de la location : tarif journalier, opérateur compris
+    var tarifs = {
+      scie: { nom: 'Scie à sol', prix: 95000, depuis: false, lame: true },
+      compacteur: { nom: 'Compacteur double bille', prix: 45000, depuis: true, lame: false }
+    };
+    var fcfa = function (n) { return n.toLocaleString('fr-FR').replace(/\s/g, ' ') + ' FCFA'; };
+    var estimer = function () {
+      if (!location_) return null;
+      var option = form.materiel.options[form.materiel.selectedIndex];
+      var cles = (option.getAttribute('data-tarif') || '').split(' ').filter(Boolean);
+      var jours = form.jours.validity.valid ? Number(form.jours.value) : 0;
+      if (!cles.length || !jours) return null;
+      var e = { jours: jours, total: 0, depuis: false, lame: false, lignes: [] };
+      cles.forEach(function (c) {
+        var t = tarifs[c];
+        e.total += t.prix * jours;
+        e.depuis = e.depuis || t.depuis;
+        e.lame = e.lame || t.lame;
+        e.lignes.push({ nom: t.nom, calcul: fcfa(t.prix) + ' × ' + jours + (jours > 1 ? ' jours' : ' jour'), montant: fcfa(t.prix * jours), depuis: t.depuis });
+      });
+      // Remise unique sur le total quand les deux machines sont louées ensemble
+      e.remise = cles.length === 2 ? 5000 : 0;
+      e.total -= e.remise;
+      e.exclus = (e.lame ? 'Lame de scie et frais' : 'Frais') + ' de déplacement du matériel non compris.';
+      return e;
+    };
+    var bloc = document.getElementById('mini-devis');
+    var element = function (parent, balise, classe, texte) {
+      var n = document.createElement(balise);
+      if (classe) n.className = classe;
+      if (texte) n.textContent = texte;
+      parent.appendChild(n);
+      return n;
+    };
+    var afficherMini = function () {
+      if (!bloc) return;
+      var e = estimer();
+      bloc.textContent = '';
+      bloc.hidden = !e;
+      if (!e) return;
+      element(bloc, 'p', 'mini-devis__titre', 'Estimation de votre location');
+      e.lignes.forEach(function (l) {
+        var ligne = element(bloc, 'div', 'mini-devis__ligne');
+        element(ligne, 'b', '', l.nom);
+        element(ligne, 'small', '', (l.depuis ? 'À partir de ' : '') + l.calcul);
+        element(ligne, 'strong', '', l.montant);
+      });
+      if (e.remise) {
+        var remise = element(bloc, 'div', 'mini-devis__ligne');
+        element(remise, 'span', '', 'Remise pour les deux machines');
+        element(remise, 'strong', '', '− ' + fcfa(e.remise));
+      }
+      var total = element(bloc, 'div', 'mini-devis__total');
+      element(total, 'span', '', e.depuis ? 'Total, à partir de' : 'Total');
+      element(total, 'strong', '', fcfa(e.total));
+      element(bloc, 'p', 'mini-devis__note', 'Montant TTC, opérateur compris. ' + e.exclus + ' Montant confirmé avant tout engagement.');
+    };
+    if (bloc) { form.addEventListener('input', afficherMini); form.addEventListener('change', afficherMini); }
     var composer = function () {
       var d = new FormData(form);
-      var lignes = ['Bonjour ERS-CI, je souhaite un devis.'];
-      [['travaux', 'Travaux'], ['lieu', 'Lieu'], ['quantite', 'Dimensions ou quantités'], ['delai', 'Délai souhaité'], ['dispo', 'Disponibilités pour la visite'], ['details', 'Précisions'], ['nom', 'Nom'], ['telephone', 'Téléphone']].forEach(function (c) {
+      var lignes = [intro];
+      champs.forEach(function (c) {
         var v = c[0] === 'dispo' ? d.getAll('dispo').join(', ') : (d.get(c[0]) || '').toString().trim();
+        if (v && c[0] === 'debut') v = v.split('-').reverse().join('/');
+        if (v && c[0] === 'jours') v += Number(v) > 1 ? ' jours' : ' jour';
         if (v) lignes.push(c[1] + ' : ' + v);
       });
+      var e = estimer();
+      if (e) lignes.push('Estimation de votre location : ' + (e.depuis ? 'à partir de ' : '') + fcfa(e.total) + ' TTC, opérateur compris' + (e.remise ? ', remise de ' + fcfa(e.remise) + ' déduite' : '') + '. ' + e.exclus);
       return lignes.join('\n');
     };
     // Un champ oublié est dit en clair, sous le champ, et l'écran y remonte
@@ -107,16 +178,20 @@
       var premier = null;
       form.querySelectorAll('[required]').forEach(function (c) {
         var msg = c.parentNode.querySelector('.champ__erreur');
-        var vide = !c.value.trim();
+        var manque = !c.value.trim();
+        var vide = manque || !c.validity.valid;
         c.setAttribute('aria-invalid', String(vide));
         if (vide && !msg) {
           msg = document.createElement('p');
           msg.className = 'champ__erreur';
           msg.id = c.id + '-erreur';
-          msg.textContent = 'À remplir : « ' + c.labels[0].textContent + ' ».';
           c.parentNode.appendChild(msg);
           c.setAttribute('aria-describedby', msg.id);
-        } else if (!vide && msg) {
+        }
+        if (vide) {
+          msg.textContent = manque ? 'À remplir : « ' + c.labels[0].textContent + ' ».'
+            : c.type === 'date' ? 'Choisissez une date à venir.' : 'Indiquez un nombre entier de jours, au moins 1.';
+        } else if (msg) {
           msg.remove();
           c.removeAttribute('aria-describedby');
         }
@@ -135,7 +210,7 @@
       window.open('https://wa.me/2250717859090?text=' + encodeURIComponent(composer()), '_blank', 'noopener');
     };
     var ouvrirEmail = function () {
-      window.location.href = 'mailto:coulb35@gmail.com?subject=' + encodeURIComponent('Demande de devis') + '&body=' + encodeURIComponent(composer());
+      window.location.href = 'mailto:coulb35@gmail.com?subject=' + encodeURIComponent(objet) + '&body=' + encodeURIComponent(composer());
     };
     // Après le clic, le formulaire cède la place au remerciement.
     // Le site ne sait pas si le message a été envoyé : il rappelle la dernière étape.
@@ -170,6 +245,7 @@
       document.getElementById('merci-reessayer').addEventListener('click', function () { dernierEnvoi(); });
       document.getElementById('merci-nouvelle').addEventListener('click', function () {
         form.reset();
+        afficherMini();
         merci.hidden = true;
         form.hidden = false;
         form.scrollIntoView({ behavior: calme ? 'auto' : 'smooth', block: 'start' });
