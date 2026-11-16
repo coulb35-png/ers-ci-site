@@ -325,7 +325,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--vert-signal); o
 .galerie figure { margin: 0; }
 .galerie img { border-radius: var(--rayon-net); aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
 .galerie figcaption { font-size: var(--t-xs); font-family: var(--police-technique); color: var(--sur-sombre-doux); padding-top: var(--e-2); line-height: 1.4; }
-@media (min-width: 900px) { .galerie { grid-template-columns: repeat(3, 1fr); gap: var(--e-4); } }
+@media (min-width: 900px) { .galerie { grid-template-columns: repeat(3, 1fr); gap: var(--e-4); } .galerie--quatre { grid-template-columns: repeat(4, 1fr); } }
 
 /* Formulaire de devis (compose un message, n'envoie rien tout seul) */
 .formulaire { display: grid; gap: var(--e-5); align-items: start; background: var(--blanc); border: 1px solid var(--trait); border-radius: var(--rayon-doux); padding: var(--e-5); }
