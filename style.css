@@ -534,3 +534,21 @@ a.coordonnee:hover { border-color: var(--vert-action); }
   .defilant__piste { animation: none; }
   .diaporama img { transform: none; }
 }
+
+/* Mot du gérant */
+.mot { max-width: 44rem; margin: 0 auto; position: relative; }
+.mot::before { content: "\201C"; position: absolute; top: -0.35em; right: 0; font-family: var(--police-titre); font-weight: 800; font-size: 9rem; line-height: 1; color: var(--vert-marque); opacity: 0.18; pointer-events: none; }
+.mot__titre { font-size: var(--t-xl); font-weight: 700; margin: var(--e-2) 0 var(--e-6); max-width: 30rem; }
+.mot__texte p { color: var(--encre-douce); margin: 0 0 var(--e-4); }
+.mot__texte .mot__ouverture { font-size: var(--t-l); line-height: 1.5; color: var(--encre); border-left: 3px solid var(--vert-marque); padding-left: var(--e-5); }
+.mot__intertitre { font-size: var(--t-l); margin: var(--e-6) 0 var(--e-3); }
+.mot__texte .mot__fin { color: var(--encre); font-weight: 600; margin-top: var(--e-6); }
+.mot__signature { margin-top: var(--e-5); padding-top: var(--e-4); border-top: 1px solid var(--trait); }
+.mot__nom { font-family: "Allura", "Segoe Script", cursive; font-size: 2.6rem; line-height: 1.1; color: var(--encre); margin: 0; }
+.mot__fonction { font-family: var(--police-technique); font-size: var(--t-xs); text-transform: uppercase; letter-spacing: 0.04em; color: var(--encre-douce); margin: var(--e-1) 0 0; }
+
+/* Rappel du mot du gérant sur l'accueil */
+.mot-rappel { margin-top: var(--e-7); padding: var(--e-5) 0 0 var(--e-5); border-left: 3px solid var(--vert-marque); max-width: 44rem; }
+.mot-rappel blockquote { margin: 0; font-size: var(--t-l); line-height: 1.5; color: var(--encre); }
+.mot-rappel .mot__nom { font-size: 2.1rem; margin-top: var(--e-3); }
+.mot-rappel .lien-fleche { margin-top: var(--e-3); }
