@@ -559,10 +559,13 @@ a.coordonnee:hover { border-color: var(--vert-action); }
 .consentement label { display: flex; align-items: flex-start; gap: var(--e-3); font-weight: 500; cursor: pointer; }
 .champ.consentement input { width: 1.25rem; height: 1.25rem; min-height: 0; padding: 0; margin: 0.2rem 0 0; flex: none; accent-color: var(--vert-action); }
 .form-location .choix__options input[type="radio"] { display: inline-block; width: 1.25rem; height: 1.25rem; min-height: 0; padding: 0; margin: 0; border: 0; -webkit-appearance: auto; appearance: auto; accent-color: var(--vert-action); }
-/* Bandeau de recrutement (accueil) */
-.bandeau-recrutement { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: var(--e-2) var(--e-3); padding: var(--e-2) var(--e-4); background: var(--vert-action); color: var(--blanc); font-weight: 600; font-size: var(--t-s); text-align: center; text-decoration: none; }
-.bandeau-recrutement strong { font-family: var(--police-technique); font-size: var(--t-xs); text-transform: uppercase; letter-spacing: 0.06em; background: var(--blanc); color: var(--vert-action); padding: 0.15em 0.6em; border-radius: var(--rayon-net); }
-.bandeau-recrutement:hover span, .bandeau-recrutement:focus-visible span { transform: translateX(3px); }
-.bandeau-recrutement span { display: inline-block; transition: transform 0.2s; }
-.bandeau-recrutement:focus-visible { outline: 3px solid var(--vert-signal); outline-offset: -3px; }
-@media (max-width: 420px) { .bandeau-recrutement { font-size: var(--t-xs); gap: var(--e-2); padding-inline: var(--e-3); } }
+/* Bandeau de recrutement (accueil) : défilant, couleurs de signalisation de chantier */
+.bandeau-recrutement { display: block; overflow: hidden; background: #F5C400; color: var(--asphalte); text-decoration: none; border-bottom: 4px solid transparent; border-image: repeating-linear-gradient(-45deg, var(--asphalte) 0 12px, #F5C400 12px 24px) 4; }
+.bandeau-recrutement__piste { display: flex; width: max-content; animation: defiler 30s linear infinite; }
+.bandeau-recrutement:hover .bandeau-recrutement__piste, .bandeau-recrutement:focus-visible .bandeau-recrutement__piste { animation-play-state: paused; }
+.bandeau-recrutement__item { display: inline-flex; align-items: center; gap: var(--e-3); padding: var(--e-2) var(--e-6); font-family: var(--police-titre); font-weight: 700; font-size: var(--t-l); text-transform: uppercase; white-space: nowrap; }
+.bandeau-recrutement__item strong { font-family: var(--police-technique); font-size: var(--t-xs); font-weight: 500; letter-spacing: 0.08em; background: #C62828; color: var(--blanc); padding: 0.3em 0.7em; border-radius: var(--rayon-net); animation: clignoter 1.2s steps(2, jump-none) infinite; }
+.bandeau-recrutement__item b { font-family: var(--police-texte); font-size: var(--t-s); font-weight: 700; text-transform: none; text-decoration: underline; text-underline-offset: 3px; }
+.bandeau-recrutement:focus-visible { outline: 3px solid var(--asphalte); outline-offset: -3px; }
+@keyframes clignoter { 50% { opacity: 0.35; } }
+@media (max-width: 420px) { .bandeau-recrutement__item { font-size: var(--t-m); padding-inline: var(--e-5); } }
