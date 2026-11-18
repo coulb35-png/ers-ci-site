@@ -210,7 +210,7 @@
       window.open('https://wa.me/2250717859090?text=' + encodeURIComponent(composer()), '_blank', 'noopener');
     };
     var ouvrirEmail = function () {
-      window.location.href = 'mailto:coulb35@gmail.com?subject=' + encodeURIComponent(objet) + '&body=' + encodeURIComponent(composer());
+      window.location.href = 'mailto:contact@ers-ci.ci?subject=' + encodeURIComponent(objet) + '&body=' + encodeURIComponent(composer());
     };
     // Après le clic, le formulaire cède la place au remerciement.
     // Le site ne sait pas si le message a été envoyé : il rappelle la dernière étape.
