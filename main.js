@@ -254,6 +254,86 @@
     }
   }
 
+  // Recrutement : la fiche du candidat se compose et s'ouvre dans WhatsApp.
+  // Rien n'est envoyé ni enregistré par le site lui-même.
+  var fiche = document.getElementById('form-recrutement');
+  if (fiche) {
+    var rubriques = [
+      ['nom', 'Nom et prénoms'], ['telephone', 'Téléphone'], ['age', 'Âge'], ['commune', 'Commune'], ['quartier', 'Quartier'], ['identite', 'Pièce d\'identité valide'],
+      ['niveau', 'Poste'], ['experience', 'Expérience'], ['savoir', 'Sait faire'], ['formation', 'Formation'], ['outillage', 'Outillage personnel'], ['routes', 'Déjà travaillé sur des routes'],
+      ['projet1', 'Chantier 1'], ['projet2', 'Chantier 2'], ['projet3', 'Chantier 3'], ['reference', 'Référence'],
+      ['dispo', 'Disponible'], ['paie', 'Paie souhaitée par jour'], ['deplacement', 'Chantiers hors d\'Abidjan'], ['message', 'Message']
+    ];
+    var composerFiche = function () {
+      var d = new FormData(fiche);
+      var lignes = ['CANDIDATURE — Bonjour ERS-CI, voici ma candidature' + (fiche.niveau.value ? ' comme ' + fiche.niveau.value.toLowerCase() : '') + '.', ''];
+      rubriques.forEach(function (r) {
+        var v = r[0] === 'savoir' ? d.getAll('savoir').join(', ') : (d.get(r[0]) || '').toString().trim();
+        if (v && r[0] === 'age') v += ' ans';
+        if (v && r[0] === 'paie') v = Number(v).toLocaleString('fr-FR').replace(/\s/g, ' ') + ' FCFA';
+        if (v) lignes.push(r[1] + ' : ' + v);
+      });
+      lignes.push('', 'J\'accepte qu\'ERS-CI utilise ces informations pour étudier ma candidature.');
+      return lignes.join('\n');
+    };
+    var validerFiche = function () {
+      var premier = null;
+      fiche.querySelectorAll('[required]').forEach(function (c) {
+        var boite = c.closest('.champ');
+        var msg = boite.querySelector('.champ__erreur');
+        var vide = c.type === 'checkbox' ? !c.checked
+          : c.type === 'radio' ? !fiche.querySelector('input[name="' + c.name + '"]:checked')
+          : !c.value.trim() || !c.validity.valid;
+        c.setAttribute('aria-invalid', String(vide));
+        if (vide && !msg) {
+          msg = document.createElement('p');
+          msg.className = 'champ__erreur';
+          msg.id = c.id + '-erreur';
+          boite.appendChild(msg);
+          c.setAttribute('aria-describedby', msg.id);
+        }
+        if (vide) {
+          msg.textContent = c.type === 'checkbox' ? 'Cochez cette case pour envoyer votre fiche.'
+            : c.type === 'radio' ? 'Répondez à cette question.'
+            : c.value.trim() && c.id === 'age' ? 'Il faut avoir au moins 18 ans.'
+            : 'À remplir : « ' + c.labels[0].textContent.replace(/\s+/g, ' ').trim() + ' ».';
+        } else if (msg) {
+          msg.remove();
+          c.removeAttribute('aria-describedby');
+        }
+        if (vide && !premier) premier = c;
+      });
+      if (premier) {
+        premier.scrollIntoView({ behavior: calme ? 'auto' : 'smooth', block: 'center' });
+        premier.focus({ preventScroll: true });
+      }
+      return !premier;
+    };
+    fiche.addEventListener('input', function (e) {
+      if (e.target.getAttribute('aria-invalid') === 'true') validerFiche();
+    });
+    fiche.addEventListener('change', function (e) {
+      if (e.target.getAttribute('aria-invalid') === 'true') validerFiche();
+    });
+    var envoyerFiche = function () {
+      window.open('https://wa.me/2250717859090?text=' + encodeURIComponent(composerFiche()), '_blank', 'noopener');
+    };
+    var merciFiche = document.getElementById('recrutement-merci');
+    fiche.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!validerFiche()) return;
+      envoyerFiche();
+      var nom = fiche.nom.value.trim();
+      merciFiche.querySelector('[data-merci-nom]').textContent = nom ? ', ' + nom : '';
+      merciFiche.querySelector('[data-merci-tel]').textContent = fiche.telephone.value.trim();
+      fiche.hidden = true;
+      merciFiche.hidden = false;
+      merciFiche.scrollIntoView({ behavior: calme ? 'auto' : 'smooth', block: 'start' });
+      merciFiche.querySelector('.merci__titre').focus({ preventScroll: true });
+    });
+    document.getElementById('recrutement-reessayer').addEventListener('click', envoyerFiche);
+  }
+
   // Diaporama du haut de page : fondu enchaîné lent
   var images = document.querySelectorAll('.diaporama img');
   if (images.length > 1 && !calme) {
