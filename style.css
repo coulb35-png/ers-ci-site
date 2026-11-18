@@ -571,3 +571,10 @@ a.coordonnee:hover { border-color: var(--vert-action); }
 .bandeau-recrutement:focus-visible { outline: 3px solid var(--asphalte); outline-offset: -3px; }
 @keyframes clignoter { 50% { opacity: 0.35; } }
 @media (max-width: 420px) { .bandeau-recrutement__piste { animation-duration: 11s; } .bandeau-recrutement__item { font-size: var(--t-m); } }
+/* Recrutement : profil recherché */
+.profil-recherche { background: var(--blanc); border: 1px solid var(--trait); border-left: 4px solid #C62828; border-radius: var(--rayon-net); padding: var(--e-5); margin-bottom: var(--e-6); }
+.profil-recherche .etiquette { margin: 0 0 var(--e-3); }
+.profil-recherche ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--e-2); }
+.profil-recherche li { position: relative; padding-left: var(--e-5); font-weight: 600; color: var(--encre); }
+.profil-recherche li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 0.6em; height: 0.6em; background: var(--vert-action); border-radius: 1px; }
+.tete-page__engagement a { color: var(--vert-signal); font-weight: 700; }
