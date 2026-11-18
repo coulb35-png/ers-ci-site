@@ -552,3 +552,6 @@ a.coordonnee:hover { border-color: var(--vert-action); }
 .mot-rappel blockquote { margin: 0; font-size: var(--t-l); line-height: 1.5; color: var(--encre); }
 .mot-rappel .mot__nom { font-size: 2.1rem; margin-top: var(--e-3); }
 .mot-rappel .lien-fleche { margin-top: var(--e-3); }
+.section--mot { padding-bottom: 0; }
+.section--mot .mot-rappel { margin: 0; padding-top: 0; }
+.section--mot .etiquette { margin: 0 0 var(--e-3); }
