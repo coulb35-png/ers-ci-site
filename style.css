@@ -578,3 +578,37 @@ a.coordonnee:hover { border-color: var(--vert-action); }
 .profil-recherche li { position: relative; padding-left: var(--e-5); font-weight: 600; color: var(--encre); }
 .profil-recherche li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 0.6em; height: 0.6em; background: var(--vert-action); border-radius: 1px; }
 .tete-page__engagement a { color: var(--vert-signal); font-weight: 700; }
+/* Conseils : liste et articles */
+.cartes-conseils { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--e-5); }
+@media (min-width: 800px) { .cartes-conseils { grid-template-columns: repeat(3, 1fr); } }
+.carte-conseil { position: relative; display: flex; flex-direction: column; gap: var(--e-3); background: var(--blanc); border: 1px solid var(--trait); border-top: 4px solid var(--vert-action); border-radius: var(--rayon-net); padding: var(--e-5); }
+.carte-conseil:hover { box-shadow: 0 6px 20px rgba(23, 26, 22, 0.08); }
+.carte-conseil__num { font-family: var(--police-technique); font-size: var(--t-xs); color: var(--vert-action); }
+.carte-conseil h2 { font-size: var(--t-l); margin: 0; }
+.carte-conseil h2 a { color: var(--encre); text-decoration: none; }
+.carte-conseil h2 a::after { content: ""; position: absolute; inset: 0; }
+.carte-conseil p { margin: 0; color: var(--encre-douce); flex: 1; }
+.article { max-width: 44rem; margin: 0 auto; }
+.article h2 { font-size: var(--t-xl); margin: var(--e-7) 0 var(--e-3); }
+.article > h2:first-child { margin-top: 0; }
+.article p { color: var(--encre-douce); }
+.article p strong, .article li strong { color: var(--encre); }
+.tableau-defilant { overflow-x: auto; margin: var(--e-4) 0; }
+.comparatif { width: 100%; min-width: 20rem; border-collapse: collapse; font-size: var(--t-s); background: var(--blanc); }
+.comparatif th, .comparatif td { text-align: left; padding: var(--e-3); border-bottom: 1px solid var(--trait); vertical-align: top; }
+.comparatif thead th { font-family: var(--police-titre); font-size: var(--t-m); background: var(--asphalte); color: var(--sur-sombre); }
+.comparatif tbody th { font-weight: 600; color: var(--encre); }
+.article__suite { margin-top: var(--e-7); padding: var(--e-5); background: var(--blanc); border: 1px solid var(--trait); border-left: 4px solid var(--vert-action); border-radius: var(--rayon-net); }
+.article__suite p { margin: 0 0 var(--e-4); color: var(--encre); }
+.article__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--e-4); margin: 0 !important; }
+.article__autres { margin-top: var(--e-7); padding-top: var(--e-5); border-top: 1px solid var(--trait); }
+.article__autres ul { margin: var(--e-2) 0 0; padding-left: var(--e-5); display: grid; gap: var(--e-2); }
+.article__autres a { color: var(--vert-action); font-weight: 600; }
+@media (max-width: 480px) { .comparatif th, .comparatif td { padding: var(--e-2); font-size: var(--t-xs); } .comparatif thead th { font-size: var(--t-s); } }
+.couches { list-style: none; counter-reset: couche; margin: var(--e-4) 0; padding: 0; display: grid; gap: var(--e-2); }
+.couches li { counter-increment: couche; position: relative; padding: var(--e-3) var(--e-4) var(--e-3) 3rem; background: var(--blanc); border: 1px solid var(--trait); border-radius: var(--rayon-net); color: var(--encre-douce); }
+.couches li::before { content: counter(couche); position: absolute; left: var(--e-4); top: var(--e-3); font-family: var(--police-technique); font-size: var(--t-xs); color: var(--blanc); background: var(--vert-action); width: 1.4rem; height: 1.4rem; display: grid; place-items: center; border-radius: 50%; }
+.article__avertissement { margin-top: var(--e-6); font-size: var(--t-s); font-style: italic; }
+.article__sources { margin-top: var(--e-5); padding-top: var(--e-4); border-top: 1px solid var(--trait); }
+.article__sources ul { margin: var(--e-2) 0 0; padding-left: var(--e-5); display: grid; gap: var(--e-2); font-size: var(--t-s); color: var(--encre-douce); }
+.article__sources cite { font-style: italic; color: var(--encre); }
