@@ -136,7 +136,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--vert-signal); o
 .section--sombre { background: var(--asphalte); color: var(--sur-sombre); }
 .section__entete { max-width: 46rem; margin-bottom: var(--e-7); }
 .section__titre { font-size: var(--t-xl); font-weight: 700; }
-.section__chapo { margin-top: var(--e-4); color: var(--sur-sombre-doux); }
+.section__chapo { margin-top: var(--e-4); color: var(--encre-douce); }
+.section--sombre .section__chapo { color: var(--sur-sombre-doux); }
 
 /* Métiers */
 .metiers { display: grid; gap: var(--e-6); }

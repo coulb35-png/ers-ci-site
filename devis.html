@@ -17,7 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="tokens.css">
-<link rel="stylesheet" href="style.css?v=20261118d">
+<link rel="stylesheet" href="style.css?v=20261120">
 </head>
 <body>
 
@@ -70,9 +70,9 @@
       <h2 id="titre-form" class="visuellement-cache">Votre demande</h2>
       <form id="form-devis" class="formulaire form-location" novalidate>
         <div class="loc-bloc">
-          <p class="loc-bloc__titre"><span aria-hidden="true">01</span>Vos travaux</p>
+          <p class="loc-bloc__titre"><span aria-hidden="true">01</span>Parlez-nous de votre projet</p>
           <div class="champ champ--large">
-            <label for="travaux">Nature des travaux</label>
+            <label for="travaux">Que souhaitez-vous réaliser&nbsp;?</label>
             <select id="travaux" name="travaux" required>
               <option value="">Choisir…</option>
               <option>Bitumage ou revêtement de voie</option>
@@ -85,44 +85,32 @@
             </select>
           </div>
           <div class="champ">
-            <label for="lieu">Lieu du chantier</label>
+            <label for="lieu">Où se trouvent vos travaux&nbsp;?</label>
             <input id="lieu" name="lieu" type="text" required placeholder="Ville, quartier" autocomplete="address-level2">
           </div>
           <div class="champ">
-            <label for="delai">Délai souhaité <em>facultatif</em></label>
-            <input id="delai" name="delai" type="text" placeholder="Ex. sous trois mois">
+            <label for="delai">Pour quand en avez-vous besoin&nbsp;? <em>facultatif</em></label>
+            <input id="delai" name="delai" type="text" placeholder="Ex. au plus vite, sous trois mois">
           </div>
           <div class="champ champ--large">
-            <label for="quantite">Dimensions ou quantités <em>facultatif</em></label>
+            <label for="quantite">Quelle taille fait votre projet&nbsp;? <em>facultatif</em></label>
             <input id="quantite" name="quantite" type="text" placeholder="Ex. 120 m de caniveau, 800 m²">
           </div>
           <div class="champ champ--large">
-            <label for="details">Précisions <em>facultatif</em></label>
+            <label for="details">Autre chose à nous dire&nbsp;? <em>facultatif</em></label>
             <textarea id="details" name="details" placeholder="Accès au site, état actuel, plans disponibles…"></textarea>
           </div>
         </div>
 
         <div class="loc-bloc">
-          <p class="loc-bloc__titre"><span aria-hidden="true">02</span>La visite sur place</p>
-          <fieldset class="champ champ--large choix">
-            <legend>Vos disponibilités <em>facultatif</em></legend>
-            <div class="choix__options">
-              <label><input type="checkbox" name="dispo" value="Matin"> Matin</label>
-              <label><input type="checkbox" name="dispo" value="Après-midi"> Après-midi</label>
-              <label><input type="checkbox" name="dispo" value="Samedi"> Samedi</label>
-            </div>
-            <small>La date exacte est fixée avec vous au téléphone.</small>
-          </fieldset>
-        </div>
-
-        <div class="loc-bloc">
-          <p class="loc-bloc__titre"><span aria-hidden="true">03</span>Vos coordonnées</p>
+          <p class="loc-bloc__titre"><span aria-hidden="true">02</span>Vos coordonnées pour en parler ensemble</p>
+          <p class="champ--large" style="color:var(--encre-douce);margin:0">Nous vous rappelons pour échanger sur votre projet et convenir ensemble de la visite du site.</p>
           <div class="champ">
-            <label for="nom">Nom ou entreprise</label>
+            <label for="nom">Votre nom ou celui de votre entreprise</label>
             <input id="nom" name="nom" type="text" required autocomplete="name">
           </div>
           <div class="champ">
-            <label for="telephone">Téléphone</label>
+            <label for="telephone">Votre numéro de téléphone</label>
             <input id="telephone" name="telephone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="07 00 00 00 00">
           </div>
         </div>
@@ -228,6 +216,6 @@
   <span>WhatsApp</span>
 </a>
 
-<script src="main.js?v=20261118d" defer></script>
+<script src="main.js?v=20261120" defer></script>
 </body>
 </html>

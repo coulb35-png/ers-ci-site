@@ -99,7 +99,7 @@
     var intro = location_ ? 'Bonjour ERS-CI, je souhaite louer du matériel avec opérateur.' : 'Bonjour ERS-CI, je souhaite un devis.';
     var champs = location_
       ? [['materiel', 'Matériel'], ['lieu', 'Site du chantier'], ['travaux', 'Travail à réaliser'], ['debut', 'Début souhaité'], ['jours', 'Durée avec opérateur'], ['quantite', 'Quantité estimée'], ['details', 'Précisions'], ['profil', 'Client'], ['nom', 'Nom ou entreprise'], ['contact', 'Personne à contacter'], ['telephone', 'Téléphone'], ['email', 'E-mail']]
-      : [['travaux', 'Travaux'], ['lieu', 'Lieu'], ['quantite', 'Dimensions ou quantités'], ['delai', 'Délai souhaité'], ['dispo', 'Disponibilités pour la visite'], ['details', 'Précisions'], ['nom', 'Nom'], ['telephone', 'Téléphone']];
+      : [['travaux', 'Travaux'], ['lieu', 'Lieu'], ['quantite', 'Dimensions ou quantités'], ['delai', 'Pour quand'], ['details', 'Autres informations'], ['nom', 'Nom'], ['telephone', 'Téléphone']];
     // La date de début ne peut pas être passée
     if (form.debut) form.debut.min = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
     // Mini-devis de la location : tarif journalier, opérateur compris
